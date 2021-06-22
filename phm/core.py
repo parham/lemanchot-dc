@@ -1,31 +1,69 @@
 
-class Recorder :
-    def __init__(self, name, folder, dtopic, renable = True) -> None:
-        self._name = name
-        self._folder = folder is not None and isinstance(folder, str) if folder else name
-        self.data_topic = dtopic
-        self.enable_recorder = renable
+""" 
+    @name core.py   
+    @info all the base or configuration classes and components
+    @organization: Laval University
+    @professor  Professor Xavier Maldague
+    @author     Parham Nooralishahi
+    @email      parham.nooralishahi.1@ulaval.ca
+"""
 
-    @property
-    def name(self) -> str:
-        return self._name
+import time
+import os
+import functools
+import logging
+import logging.config
+import json
+import yaml
 
-    @property
-    def folder(self) -> str:
-        return self._folder
-    
-    def __str__(self) -> str:
-        return self.name
+default_log_config_file = 'log_config.yml'
 
-    def __repr__(self) -> str:
-        return self.__str__()
+def exception_logger(function):
+    """
+    A decorator that wraps the passed in function and logs 
+    exceptions should one occur
+    """
+    @functools.wraps(function)
+    def wrapper(*args, **kwargs):
+        try:
+            return function(*args, **kwargs)
+        except:
+            # log the exception
+            err = "There was an exception in  " + function.__name__
+            logging.exception(err)
+            # re-raise the exception
+            raise
+    return wrapper
 
-    def begin_recording ():
-        pass
+def initialize_log():
+    """Initialize the log configuration"""
+    if os.path.isfile(default_log_config_file):
+        with open(default_log_config_file, 'r') as f:
+            config = yaml.safe_load(f.read())
+            logging.config.dictConfig(config)
+            logging.getLogger().setLevel(logging.INFO)
+        logging.info(
+            'Logging is configured based on the defined configuration file.')
+    else:
+        logging.error('the logging configuration file does not exist')
 
-    def record (data):
-        pass
+@exception_logger
+def load_config(config_file):
+    config = dict()
+    with open(config_file, 'r') as cfile:
+        config = json.load(cfile)
+    return config
 
-    def end_recording ():
-        pass
+def save_config(config, config_file):
+    with open(config_file, 'w') as cfile:
+        json.dump(config, config_file)
+
+class Configurable:
+    def __init__(self, config : dict) -> None:
+        for key, value in config.items():
+            self.__setattr__(key,value)
+
+    def as_dict(self) -> dict:
+        return self.config
+
 

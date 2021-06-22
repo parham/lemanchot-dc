@@ -5,9 +5,8 @@ import rospy
 import cv2
 import numpy as np
 from std_msgs.msg import String
-from sensor_msgs.msg import Image
+from sensor_msgs.msg import Image, CameraInfo
 import message_filters
-
 
 def callback_visible(data):
     try:
@@ -51,6 +50,8 @@ def main(args):
     #         "/camera/aligned_depth_to_color/image_raw", Image, callback_depth, queue_size=10)
     # vis_sub = rospy.Subscriber(
     #         "/camera/color/image_raw", Image, callback_visible, queue_size=10)
+
+    cinfo = rospy.wait_for_message('/camera/color/camera_info', CameraInfo, timeout=10)
 
     depth_sub = message_filters.Subscriber("/camera/aligned_depth_to_color/image_raw", Image)
     vis_sub = message_filters.Subscriber("/camera/color/image_raw", Image)

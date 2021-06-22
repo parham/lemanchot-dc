@@ -1,24 +1,30 @@
 {
-    "root_dir" : "/home/phm/Documents",
-    "buffer_size" : 50,
-    "visible_camera" : {
-        "img_topics" : "/camera/color/image_raw",
-        "info_topics" : "/camera/color/camera_info",
-        "data_folder" : "visible",
-        "enable_recorder" : true
-    },
-    "depth_camera" : {
-        "img_topics" : "/camera/aligned_depth_to_color/image_raw",
-        "info_topics" : "/camera/depth/camera_info",
-        "data_folder" : "depth",
-        "enable_recorder" : true
-    },
-    "sensor_imu" : {
-        "data_topics" : "/camera/accel/sample",
-        "info_topics" : "/camera/accel/imu_info",
-        "data_folder" : "sensor_imu",
-        "enable_recorder" : true
-    },
-    "record_sensor_imu" : true,
-    "record_drone_tele" : true
+    "root_dir": "/home/phm/Documents",
+    "buffer_size": 50,
+    "collectors": [
+        {
+            "name" : "visible_camera",
+            "data_folder": "visible",
+            "data_topic": "/camera/color/image_raw",
+            "enable_recorder": true,
+            "queue_size" : 50,
+            "info_topic": "/camera/color/camera_info"
+        },
+        {
+            "name" : "depth_camera",
+            "data_folder": "depth",
+            "data_topic": "/camera/aligned_depth_to_color/image_raw",
+            "enable_recorder": true,
+            "queue_size" : 50,
+            "info_topic": "/camera/depth/camera_info"
+        },
+        {
+            "name" : "sensor_imu",
+            "data_folder": "sensor_imu",
+            "data_topic": "/camera/accel/sample",
+            "enable_recorder": true,
+            "queue_size" : 5,
+            "info_topic": "/camera/accel/imu_info"
+        }
+    ]
 }
