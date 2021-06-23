@@ -6,6 +6,7 @@ import time
 import os
 import logging
 import json
+import imageio
 from PIL import Image
 from pathlib import Path
 from typing import Any
@@ -84,7 +85,6 @@ class Recorder (phm.Configurable) :
 class VisibleRecorder (Recorder):
     def __init__(self, root_dir, config: dict) -> None:
         super().__init__(root_dir, msg.Image, config)
-        self.name = 'visible_camera'
     
     def record_camera_info(self, *args: Any, **kwargs: Any) :
         # Collect a packet from camera info topic
@@ -116,6 +116,14 @@ class VisibleRecorder (Recorder):
         vimg = Image.fromarray(img)
         vimg.save(filename)
         
+class DepthRecorder (VisibleRecorder):
+    def __init__(self, root_dir, config: dict) -> None:
+        super().__init__(root_dir, config)
+
+    def _record_process(self, timestamp, data):
+        filename = os.path.join(self.data_folder, f'depth_{timestamp}.png')
+        img = np.frombuffer(data.data, dtype=np.uint16).reshape(data.height, data.width, -1)
+        imageio.imwrite(filename, img.astype(np.uint16))
 
 class LeManchotDC:
 
@@ -174,6 +182,7 @@ class LeManchotDC:
                 vobj = VisibleRecorder(self.root_dir,obj) 
                 is_implemented = True
             elif name == 'depth_camera':
+                vobj = DepthRecorder(self.root_dir,obj) 
                 is_implemented = True
             elif name == 'sensor_imu':
                 is_implemented = True
