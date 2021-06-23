@@ -8,9 +8,14 @@ handlers:
   console:
     class: logging.StreamHandler
     formatter: standard
+  file_handler:
+    class: logging.handlers.TimedRotatingFileHandler
+    formatter: standard
+    filename: ./logs/lemanchot.log
+    when: midnight
 loggers:
   sysLogger:
-    handlers: [console]
+    handlers: [console, file_handler]
     propagate: true
 root:
-  handlers: [console]
+  handlers: [console, file_handler]

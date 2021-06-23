@@ -1,0 +1,26 @@
+2021-06-22 19:34:39,042 INFO <PID 2288:MainProcess> root.initialize_log(): Logging is configured based on the defined configuration file.
+2021-06-22 19:34:39,042 INFO <PID 2288:MainProcess> rosout.main(): Node Test is being started ...
+2021-06-22 19:34:39,053 INFO <PID 2288:MainProcess> rospy.client.init_node(): init_node, name[/image_converter_2288_1624404879043], pid[2288]
+2021-06-22 19:34:39,054 INFO <PID 2288:MainProcess> xmlrpc.XmlRpcNode._run_init(): XML-RPC server binding to 0.0.0.0:0
+2021-06-22 19:34:39,055 INFO <PID 2288:MainProcess> xmlrpc.XmlRpcNode._run_init(): Started XML-RPC server [http://phm-rory:35731/]
+2021-06-22 19:34:39,055 INFO <PID 2288:MainProcess> rospy.init.start_node(): ROS Slave URI: [http://phm-rory:35731/]
+2021-06-22 19:34:39,056 INFO <PID 2288:MainProcess> rospy.impl.masterslave.ROSHandler._ready(): _ready: http://phm-rory:35731/
+2021-06-22 19:34:39,057 INFO <PID 2288:MainProcess> xmlrpc.XmlRpcNode._run_init(): xml rpc node: starting XML-RPC server
+2021-06-22 19:34:39,059 INFO <PID 2288:MainProcess> rospy.registration.RegManager.start(): Registering with master node http://localhost:11311
+2021-06-22 19:34:39,156 INFO <PID 2288:MainProcess> rospy.init.start_node(): registered with master
+2021-06-22 19:34:39,158 INFO <PID 2288:MainProcess> rospy.rosout.init_rosout(): initializing /rosout core topic
+2021-06-22 19:34:39,170 INFO <PID 2288:MainProcess> rospy.rosout.init_rosout(): connected to core topic /rosout
+2021-06-22 19:34:39,173 INFO <PID 2288:MainProcess> rospy.simtime.init_simtime(): /use_sim_time is not set, will not subscribe to simulated time [/clock] topic
+2021-06-22 19:34:39,188 INFO <PID 2288:MainProcess> rospy.internal.rospyinfo(): topic[/camera/color/camera_info] adding connection to [http://phm-rory:46317/], count 0
+2021-06-22 19:34:39,215 INFO <PID 2288:MainProcess> rospy.internal.rospyinfo(): topic impl's ref count is zero, deleting topic /camera/color/camera_info...
+2021-06-22 19:34:39,217 INFO <PID 2288:MainProcess> rospy.internal.rospyinfo(): topic[/camera/color/camera_info] removing connection to http://phm-rory:46317/
+2021-06-22 19:34:39,241 INFO <PID 2288:MainProcess> rospy.internal.rospyinfo(): topic[/camera/aligned_depth_to_color/image_raw] adding connection to [http://phm-rory:46317/], count 0
+2021-06-22 19:34:39,245 INFO <PID 2288:MainProcess> rospy.internal.rospyinfo(): topic[/camera/color/image_raw] adding connection to [http://phm-rory:46317/], count 0
+2021-06-22 19:34:39,414 INFO <PID 2288:MainProcess> rospy.internal.rospyinfo(): topic[/rosout] adding connection to [/rosout], count 0
+2021-06-22 19:34:45,424 INFO <PID 2288:MainProcess> rospy.core.signal_shutdown(): signal_shutdown [signal-2]
+2021-06-22 19:34:45,425 INFO <PID 2288:MainProcess> rosout.shutdown(): Node is shutting down ...
+2021-06-22 19:34:45,431 INFO <PID 2288:MainProcess> rospy.internal.rospyinfo(): topic[/rosout] removing connection to /rosout
+2021-06-22 19:34:45,432 INFO <PID 2288:MainProcess> rospy.internal.rospyinfo(): topic[/camera/aligned_depth_to_color/image_raw] removing connection to http://phm-rory:46317/
+2021-06-22 19:34:45,433 INFO <PID 2288:MainProcess> rospy.internal.rospyinfo(): topic[/camera/color/image_raw] removing connection to http://phm-rory:46317/
+2021-06-22 19:34:45,433 INFO <PID 2288:MainProcess> rospy.impl.masterslave.ROSHandler._shutdown(): signal-2
+2021-06-22 19:34:46,582 INFO <PID 2288:MainProcess> rospy.core.signal_shutdown(): signal_shutdown [atexit]

@@ -1,7 +1,9 @@
 #!/usr/bin/env python
 
-import sys
+import phm
 import rospy
+import logging
+import sys
 import cv2
 import numpy as np
 from std_msgs.msg import String
@@ -30,7 +32,9 @@ def callback_depth(data):
     cv2.imshow("Depth Window", img)
     cv2.waitKey(10)
 
-def callback_sync(depth, viz):
+def callback_sync(*data):
+    depth = data[0]
+    viz = data[1]
     try:
         vimg = np.frombuffer(viz.data, dtype=np.uint8).reshape(viz.height, viz.width, -1)
         dimg = np.frombuffer(depth.data, dtype=np.uint16).reshape(depth.height, depth.width, -1)
@@ -41,10 +45,15 @@ def callback_sync(depth, viz):
     cv2.imshow("Depth Window", dimg)
     cv2.waitKey(10)
 
+def shutdown():
+    rospy.loginfo('Node is shutting down ...')
+    cv2.destroyAllWindows()
 
 def main(args):
-
+    # print('Node Test is being started ...')
+    logging.info('Node Test is being started ...')
     rospy.init_node('image_converter', anonymous=True)
+    rospy.on_shutdown(shutdown)
 
     # depth_sub = rospy.Subscriber(
     #         "/camera/aligned_depth_to_color/image_raw", Image, callback_depth, queue_size=10)
@@ -63,7 +72,7 @@ def main(args):
         rospy.spin()
     except KeyboardInterrupt:
         print("Shutting down")
-    cv2.destroyAllWindows()
+    # cv2.destroyAllWindows()
 
 
 

@@ -1,16 +1,18 @@
 
 import phm
 
-import cv2
+import numpy as np
 import time
 import os
 import logging
 import json
+from PIL import Image
 from pathlib import Path
 from typing import Any
 import rospy
 
-from sensor_msgs.msg import Image, CameraInfo
+import sensor_msgs.msg as msg
+# from sensor_msgs.msg import Image, CameraInfo
 import message_filters
 import threading
 import queue
@@ -41,7 +43,7 @@ class Recorder (phm.Configurable) :
             return
         self.topic_subscriber = message_filters.Subscriber(self.data_topic, self.main_classtype)
         self.sys_alive = True
-        self.record_thread = threading.Thread(target=self._record_loop, name=f'{self.name}_camera_info')
+        self.record_thread = threading.Thread(target=self._record_loop, name=f'{self.name}_main_topic', daemon=True)
         self.record_thread.start()
         logging.info(f'Collector {self.name} is initiated and started to run ...')
 
@@ -61,12 +63,17 @@ class Recorder (phm.Configurable) :
 
     def record(self, data : dict):
         if self.enable_recorder:
+            if self.record_queue.full():
+                self.record_queue.get()
             self.record_queue.put_nowait(data)
 
     def end_recording(self):
-        self.sys_alive = False
-        self.record_thread.join()
-        logging.info(f'Collector {self.name} is terminated.')
+        try:
+            self.sys_alive = False
+            self.record_thread.join(timeout=2)
+            logging.info(f'Collector {self.name} is terminated.')
+        except:
+            logging.error(f'{self.name} thread is failed to terminate!')
 
     def __str__(self) -> str:
         return f'{self.name} is handling the topic {self.data_topic}'
@@ -76,12 +83,12 @@ class Recorder (phm.Configurable) :
 
 class VisibleRecorder (Recorder):
     def __init__(self, root_dir, config: dict) -> None:
-        super().__init__(config)
+        super().__init__(root_dir, msg.Image, config)
         self.name = 'visible_camera'
     
     def record_camera_info(self, *args: Any, **kwargs: Any) :
         # Collect a packet from camera info topic
-        cinfo = rospy.wait_for_message(self.info_topic, CameraInfo, timeout=10)
+        cinfo = rospy.wait_for_message(self.info_topic, msg.CameraInfo, timeout=10)
         # Extract the camera calibration fields
         obj = dict()
         obj['D'] = cinfo.D
@@ -103,12 +110,12 @@ class VisibleRecorder (Recorder):
         thobj = threading.Thread(target=self.record_camera_info, name=f'{self.name}_camera_info')
         thobj.start()
     
-    def _record_process(self, data):
-        timestamp = data[timestamp_label]
-        img = data['visible']
-        filename = os.path.join(self.data_folder, f'viible_{timestamp}.png')
-        cv2.imwrite(filename, img)
-
+    def _record_process(self, timestamp, data):
+        filename = os.path.join(self.data_folder, f'visible_{timestamp}.png')
+        img = np.frombuffer(data.data, dtype=np.uint8).reshape(data.height, data.width, -1)
+        vimg = Image.fromarray(img)
+        vimg.save(filename)
+        
 
 class LeManchotDC:
 
@@ -124,9 +131,11 @@ class LeManchotDC:
         self.root_dir = None
         self.buffer_size = 1
         self.collectors = dict()
+        self.collectors_name = list()
         self.subscribers = list()
+        self.__last_time = time.time()
 
-    def get_instance(self, config_file = None):
+    def get_instance(config_file = None):
         """ Create or get the instance of the data acquisition component """
         if LeManchotDC.__instance == None:
             obj = LeManchotDC()
@@ -142,39 +151,52 @@ class LeManchotDC:
         Path(self.root_dir).mkdir(parents=True,exist_ok=True)
         # Initialize the buffer size
         self.buffer_size = self.config['buffer_size'] if 'buffer_size' in self.config else 5
+        # Initialize the time lack
+        self.time_lack = self.config['time_lack'] if 'time_lack' in self.config else 0
         # Initialize collectors
         cols_config = self.config['collectors']
         if cols_config is None or not cols_config:
             raise Exception('Collectors are not determined!')
-        self.collectors = self.initialize_collectors(cols_config)
+        self.initialize_collectors(cols_config)
         
     def initialize_collectors(self, cols_config : list) -> dict :
         # Create the instances of targeted collectors
         for obj in cols_config:
             name = obj['name']
+            vobj = None
+
             if name in self.collectors:
                 continue
+
+            # Selecting proper collectors
+            is_implemented = False
             if name == 'visible_camera':
-                tmp = VisibleRecorder(self.root_dir,obj) 
-                self.collectors[name] = tmp
-                tmp.begin_recording()
-                self.subscribers.append(tmp.topic_subscriber)
+                vobj = VisibleRecorder(self.root_dir,obj) 
+                is_implemented = True
             elif name == 'depth_camera':
-                pass
+                is_implemented = True
             elif name == 'sensor_imu':
-                pass
-            else:
+                is_implemented = True
+            
+            if vobj is not None:
+                self.collectors[name] = vobj
+                vobj.begin_recording()
+                self.subscribers.append(vobj.topic_subscriber)
+                self.collectors_name.append(name)
+            elif not is_implemented:
                 raise NotImplementedError()
 
     def record(self, data : dict):
         timestamp = int(time.time() * 1000.0)
-        data[timestamp_label] = timestamp
-        for key, value in data.items():
-            self.collectors[key].record({
-                timestamp_label : timestamp,
-                data_label : value
-            })
+        if (timestamp - self.__last_time) > self.time_lack:
+            for key, value in data.items():
+                self.collectors[key].record({
+                    timestamp_label : timestamp,
+                    data_label : value
+                })
+            self.__last_time = timestamp
 
     def terminate(self):
+        logging.info('LeManchot-dc is shutting down ...')
         for obj in self.collectors.values():
             obj.end_recording()

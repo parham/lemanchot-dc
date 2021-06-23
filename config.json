@@ -1,6 +1,7 @@
 {
-    "root_dir": "/home/phm/Documents",
+    "root_dir": "recordings",
     "buffer_size": 50,
+    "time_lack" : 160,
     "collectors": [
         {
             "name" : "visible_camera",

@@ -1,0 +1,665 @@
+2021-06-23 00:11:08,400 INFO <PID 30688:MainProcess> root.initialize_log(): Logging is configured based on the defined configuration file.
+2021-06-23 00:11:08,401 INFO <PID 30688:MainProcess> root.<module>(): =============================================================
+2021-06-23 00:11:08,401 INFO <PID 30688:MainProcess> root.<module>(): == LeManchot-DC System : Multi-Modal Data Acquisition      ==
+2021-06-23 00:11:08,401 INFO <PID 30688:MainProcess> root.<module>(): == Laval University                                        ==
+2021-06-23 00:11:08,402 INFO <PID 30688:MainProcess> root.<module>(): == @Supervisor : Professor Xavier Maldague                 ==
+2021-06-23 00:11:08,402 INFO <PID 30688:MainProcess> root.<module>(): == @Researcher : Parham Nooralishahi                       ==
+2021-06-23 00:11:08,402 INFO <PID 30688:MainProcess> root.<module>(): == @year @ 2021                                            ==
+2021-06-23 00:11:08,403 INFO <PID 30688:MainProcess> root.<module>(): =============================================================
+2021-06-23 00:11:08,403 INFO <PID 30688:MainProcess> root.main_func(): System is started!
+2021-06-23 00:11:08,403 INFO <PID 30688:MainProcess> root.main_func(): starting computations on 12 cores
+2021-06-23 00:11:08,418 INFO <PID 30688:MainProcess> rospy.client.init_node(): init_node, name[/lemanchot-dc_30688_1624421468404], pid[30688]
+2021-06-23 00:11:08,420 INFO <PID 30688:MainProcess> xmlrpc.XmlRpcNode._run_init(): XML-RPC server binding to 0.0.0.0:0
+2021-06-23 00:11:08,421 INFO <PID 30688:MainProcess> xmlrpc.XmlRpcNode._run_init(): Started XML-RPC server [http://phm-rory:39975/]
+2021-06-23 00:11:08,421 INFO <PID 30688:MainProcess> rospy.init.start_node(): ROS Slave URI: [http://phm-rory:39975/]
+2021-06-23 00:11:08,421 INFO <PID 30688:MainProcess> rospy.impl.masterslave.ROSHandler._ready(): _ready: http://phm-rory:39975/
+2021-06-23 00:11:08,423 INFO <PID 30688:MainProcess> xmlrpc.XmlRpcNode._run_init(): xml rpc node: starting XML-RPC server
+2021-06-23 00:11:08,426 INFO <PID 30688:MainProcess> rospy.registration.RegManager.start(): Registering with master node http://localhost:11311
+2021-06-23 00:11:08,522 INFO <PID 30688:MainProcess> rospy.init.start_node(): registered with master
+2021-06-23 00:11:08,523 INFO <PID 30688:MainProcess> rospy.rosout.init_rosout(): initializing /rosout core topic
+2021-06-23 00:11:08,531 INFO <PID 30688:MainProcess> rospy.rosout.init_rosout(): connected to core topic /rosout
+2021-06-23 00:11:08,534 INFO <PID 30688:MainProcess> rospy.simtime.init_simtime(): /use_sim_time is not set, will not subscribe to simulated time [/clock] topic
+2021-06-23 00:11:08,552 INFO <PID 30688:MainProcess> root.begin_recording(): Collector visible_camera is initiated and started to run ...
+2021-06-23 00:11:08,555 INFO <PID 30688:MainProcess> root.get_instance(): LeManchot-DC is initialized.
+2021-06-23 00:11:08,565 INFO <PID 30688:MainProcess> rospy.internal.rospyinfo(): topic[/camera/color/image_raw] adding connection to [http://phm-rory:43643/], count 0
+2021-06-23 00:11:08,571 INFO <PID 30688:MainProcess> rospy.internal.rospyinfo(): topic[/camera/color/camera_info] adding connection to [http://phm-rory:43643/], count 0
+2021-06-23 00:12:16,594 INFO <PID 31264:MainProcess> root.initialize_log(): Logging is configured based on the defined configuration file.
+2021-06-23 00:12:16,594 INFO <PID 31264:MainProcess> root.<module>(): =============================================================
+2021-06-23 00:12:16,595 INFO <PID 31264:MainProcess> root.<module>(): == LeManchot-DC System : Multi-Modal Data Acquisition      ==
+2021-06-23 00:12:16,595 INFO <PID 31264:MainProcess> root.<module>(): == Laval University                                        ==
+2021-06-23 00:12:16,595 INFO <PID 31264:MainProcess> root.<module>(): == @Supervisor : Professor Xavier Maldague                 ==
+2021-06-23 00:12:16,595 INFO <PID 31264:MainProcess> root.<module>(): == @Researcher : Parham Nooralishahi                       ==
+2021-06-23 00:12:16,596 INFO <PID 31264:MainProcess> root.<module>(): == @year @ 2021                                            ==
+2021-06-23 00:12:16,596 INFO <PID 31264:MainProcess> root.<module>(): =============================================================
+2021-06-23 00:12:16,596 INFO <PID 31264:MainProcess> root.main_func(): System is started!
+2021-06-23 00:12:16,597 INFO <PID 31264:MainProcess> root.main_func(): starting computations on 12 cores
+2021-06-23 00:12:16,610 INFO <PID 31264:MainProcess> rospy.client.init_node(): init_node, name[/lemanchot-dc_31264_1624421536597], pid[31264]
+2021-06-23 00:12:16,612 INFO <PID 31264:MainProcess> xmlrpc.XmlRpcNode._run_init(): XML-RPC server binding to 0.0.0.0:0
+2021-06-23 00:12:16,613 INFO <PID 31264:MainProcess> xmlrpc.XmlRpcNode._run_init(): Started XML-RPC server [http://phm-rory:43607/]
+2021-06-23 00:12:16,614 INFO <PID 31264:MainProcess> rospy.init.start_node(): ROS Slave URI: [http://phm-rory:43607/]
+2021-06-23 00:12:16,614 INFO <PID 31264:MainProcess> rospy.impl.masterslave.ROSHandler._ready(): _ready: http://phm-rory:43607/
+2021-06-23 00:12:16,616 INFO <PID 31264:MainProcess> xmlrpc.XmlRpcNode._run_init(): xml rpc node: starting XML-RPC server
+2021-06-23 00:12:16,619 INFO <PID 31264:MainProcess> rospy.registration.RegManager.start(): Registering with master node http://localhost:11311
+2021-06-23 00:12:16,715 INFO <PID 31264:MainProcess> rospy.init.start_node(): registered with master
+2021-06-23 00:12:16,716 INFO <PID 31264:MainProcess> rospy.rosout.init_rosout(): initializing /rosout core topic
+2021-06-23 00:12:16,724 INFO <PID 31264:MainProcess> rospy.rosout.init_rosout(): connected to core topic /rosout
+2021-06-23 00:12:16,727 INFO <PID 31264:MainProcess> rospy.simtime.init_simtime(): /use_sim_time is not set, will not subscribe to simulated time [/clock] topic
+2021-06-23 00:12:16,750 INFO <PID 31264:MainProcess> root.begin_recording(): Collector visible_camera is initiated and started to run ...
+2021-06-23 00:12:16,753 INFO <PID 31264:MainProcess> root.get_instance(): LeManchot-DC is initialized.
+2021-06-23 00:12:16,758 INFO <PID 31264:MainProcess> rospy.internal.rospyinfo(): topic[/camera/color/image_raw] adding connection to [http://phm-rory:43643/], count 0
+2021-06-23 00:12:16,776 INFO <PID 31264:MainProcess> rospy.internal.rospyinfo(): topic[/camera/color/camera_info] adding connection to [http://phm-rory:43643/], count 0
+2021-06-23 00:12:49,243 INFO <PID 31576:MainProcess> root.initialize_log(): Logging is configured based on the defined configuration file.
+2021-06-23 00:12:49,243 INFO <PID 31576:MainProcess> root.<module>(): =============================================================
+2021-06-23 00:12:49,244 INFO <PID 31576:MainProcess> root.<module>(): == LeManchot-DC System : Multi-Modal Data Acquisition      ==
+2021-06-23 00:12:49,244 INFO <PID 31576:MainProcess> root.<module>(): == Laval University                                        ==
+2021-06-23 00:12:49,244 INFO <PID 31576:MainProcess> root.<module>(): == @Supervisor : Professor Xavier Maldague                 ==
+2021-06-23 00:12:49,245 INFO <PID 31576:MainProcess> root.<module>(): == @Researcher : Parham Nooralishahi                       ==
+2021-06-23 00:12:49,245 INFO <PID 31576:MainProcess> root.<module>(): == @year @ 2021                                            ==
+2021-06-23 00:12:49,245 INFO <PID 31576:MainProcess> root.<module>(): =============================================================
+2021-06-23 00:12:49,246 INFO <PID 31576:MainProcess> root.main_func(): System is started!
+2021-06-23 00:12:49,246 INFO <PID 31576:MainProcess> root.main_func(): starting computations on 12 cores
+2021-06-23 00:12:49,260 INFO <PID 31576:MainProcess> rospy.client.init_node(): init_node, name[/lemanchot-dc_31576_1624421569247], pid[31576]
+2021-06-23 00:12:49,262 INFO <PID 31576:MainProcess> xmlrpc.XmlRpcNode._run_init(): XML-RPC server binding to 0.0.0.0:0
+2021-06-23 00:12:49,264 INFO <PID 31576:MainProcess> xmlrpc.XmlRpcNode._run_init(): Started XML-RPC server [http://phm-rory:34307/]
+2021-06-23 00:12:49,264 INFO <PID 31576:MainProcess> rospy.init.start_node(): ROS Slave URI: [http://phm-rory:34307/]
+2021-06-23 00:12:49,264 INFO <PID 31576:MainProcess> rospy.impl.masterslave.ROSHandler._ready(): _ready: http://phm-rory:34307/
+2021-06-23 00:12:49,266 INFO <PID 31576:MainProcess> xmlrpc.XmlRpcNode._run_init(): xml rpc node: starting XML-RPC server
+2021-06-23 00:12:49,268 INFO <PID 31576:MainProcess> rospy.registration.RegManager.start(): Registering with master node http://localhost:11311
+2021-06-23 00:12:49,365 INFO <PID 31576:MainProcess> rospy.init.start_node(): registered with master
+2021-06-23 00:12:49,366 INFO <PID 31576:MainProcess> rospy.rosout.init_rosout(): initializing /rosout core topic
+2021-06-23 00:12:49,374 INFO <PID 31576:MainProcess> rospy.rosout.init_rosout(): connected to core topic /rosout
+2021-06-23 00:12:49,376 INFO <PID 31576:MainProcess> rospy.simtime.init_simtime(): /use_sim_time is not set, will not subscribe to simulated time [/clock] topic
+2021-06-23 00:12:49,395 INFO <PID 31576:MainProcess> root.begin_recording(): Collector visible_camera is initiated and started to run ...
+2021-06-23 00:12:49,397 INFO <PID 31576:MainProcess> root.get_instance(): LeManchot-DC is initialized.
+2021-06-23 00:12:49,400 INFO <PID 31576:MainProcess> rospy.internal.rospyinfo(): topic[/camera/color/image_raw] adding connection to [http://phm-rory:43643/], count 0
+2021-06-23 00:12:49,411 INFO <PID 31576:MainProcess> rospy.internal.rospyinfo(): topic[/camera/color/camera_info] adding connection to [http://phm-rory:43643/], count 0
+2021-06-23 00:12:53,889 INFO <PID 31576:MainProcess> rospy.internal.rospyinfo(): topic impl's ref count is zero, deleting topic /camera/color/camera_info...
+2021-06-23 00:12:53,887 ERROR <PID 31576:MainProcess> rosout._SubscriberImpl._invoke_callback(): bad callback: <bound method Subscriber.callback of <message_filters.Subscriber object at 0x7f8866599910>>
+Traceback (most recent call last):
+  File "/opt/ros/melodic/lib/python2.7/dist-packages/rospy/topics.py", line 750, in _invoke_callback
+    cb(msg)
+  File "/opt/ros/melodic/lib/python2.7/dist-packages/message_filters/__init__.py", line 76, in callback
+    self.signalMessage(msg)
+  File "/opt/ros/melodic/lib/python2.7/dist-packages/message_filters/__init__.py", line 58, in signalMessage
+    cb(*(msg + args))
+  File "/opt/ros/melodic/lib/python2.7/dist-packages/message_filters/__init__.py", line 225, in add
+    self.signalMessage(*msgs)
+  File "/opt/ros/melodic/lib/python2.7/dist-packages/message_filters/__init__.py", line 58, in signalMessage
+    cb(*(msg + args))
+  File "/home/phm/Development/lemanchot-system/phm_recorder.py", line 30, in callback_sync
+    dcobj.record(packet)
+  File "/home/phm/Development/lemanchot-system/phm/data_acquisition.py", line 187, in record
+    self.collectors[key].record({
+KeyError: 'timestamp'
+
+2021-06-23 00:12:53,905 INFO <PID 31576:MainProcess> rospy.internal.rospyinfo(): topic[/camera/color/camera_info] removing connection to http://phm-rory:43643/
+2021-06-23 00:12:53,911 WARNING <PID 31576:MainProcess> rospy.internal.rospywarn(): Unknown error initiating TCP/IP socket to phm-rory:51021 (http://phm-rory:43643/): Traceback (most recent call last):
+  File "/opt/ros/melodic/lib/python2.7/dist-packages/rospy/impl/tcpros_base.py", line 560, in connect
+    self.socket.connect((dest_addr, dest_port))
+OSError: [Errno 9] Bad file descriptor
+
+2021-06-23 00:12:53,991 INFO <PID 31576:MainProcess> rospy.internal.rospyinfo(): topic[/rosout] adding connection to [/rosout], count 0
+2021-06-23 00:13:27,594 INFO <PID 31969:MainProcess> root.initialize_log(): Logging is configured based on the defined configuration file.
+2021-06-23 00:13:27,595 INFO <PID 31969:MainProcess> root.<module>(): =============================================================
+2021-06-23 00:13:27,595 INFO <PID 31969:MainProcess> root.<module>(): == LeManchot-DC System : Multi-Modal Data Acquisition      ==
+2021-06-23 00:13:27,595 INFO <PID 31969:MainProcess> root.<module>(): == Laval University                                        ==
+2021-06-23 00:13:27,596 INFO <PID 31969:MainProcess> root.<module>(): == @Supervisor : Professor Xavier Maldague                 ==
+2021-06-23 00:13:27,596 INFO <PID 31969:MainProcess> root.<module>(): == @Researcher : Parham Nooralishahi                       ==
+2021-06-23 00:13:27,596 INFO <PID 31969:MainProcess> root.<module>(): == @year @ 2021                                            ==
+2021-06-23 00:13:27,597 INFO <PID 31969:MainProcess> root.<module>(): =============================================================
+2021-06-23 00:13:27,597 INFO <PID 31969:MainProcess> root.main_func(): System is started!
+2021-06-23 00:13:27,598 INFO <PID 31969:MainProcess> root.main_func(): starting computations on 12 cores
+2021-06-23 00:13:27,635 INFO <PID 31969:MainProcess> rospy.client.init_node(): init_node, name[/lemanchot-dc_31969_1624421607599], pid[31969]
+2021-06-23 00:13:27,637 INFO <PID 31969:MainProcess> xmlrpc.XmlRpcNode._run_init(): XML-RPC server binding to 0.0.0.0:0
+2021-06-23 00:13:27,639 INFO <PID 31969:MainProcess> xmlrpc.XmlRpcNode._run_init(): Started XML-RPC server [http://phm-rory:41837/]
+2021-06-23 00:13:27,639 INFO <PID 31969:MainProcess> rospy.init.start_node(): ROS Slave URI: [http://phm-rory:41837/]
+2021-06-23 00:13:27,639 INFO <PID 31969:MainProcess> rospy.impl.masterslave.ROSHandler._ready(): _ready: http://phm-rory:41837/
+2021-06-23 00:13:27,641 INFO <PID 31969:MainProcess> xmlrpc.XmlRpcNode._run_init(): xml rpc node: starting XML-RPC server
+2021-06-23 00:13:27,644 INFO <PID 31969:MainProcess> rospy.registration.RegManager.start(): Registering with master node http://localhost:11311
+2021-06-23 00:13:27,740 INFO <PID 31969:MainProcess> rospy.init.start_node(): registered with master
+2021-06-23 00:13:27,742 INFO <PID 31969:MainProcess> rospy.rosout.init_rosout(): initializing /rosout core topic
+2021-06-23 00:13:27,759 INFO <PID 31969:MainProcess> rospy.rosout.init_rosout(): connected to core topic /rosout
+2021-06-23 00:13:27,763 INFO <PID 31969:MainProcess> rospy.simtime.init_simtime(): /use_sim_time is not set, will not subscribe to simulated time [/clock] topic
+2021-06-23 00:13:27,778 INFO <PID 31969:MainProcess> root.begin_recording(): Collector visible_camera is initiated and started to run ...
+2021-06-23 00:13:27,787 INFO <PID 31969:MainProcess> rospy.internal.rospyinfo(): topic[/camera/color/image_raw] adding connection to [http://phm-rory:43643/], count 0
+2021-06-23 00:13:27,789 INFO <PID 31969:MainProcess> root.get_instance(): LeManchot-DC is initialized.
+2021-06-23 00:13:27,806 INFO <PID 31969:MainProcess> rospy.internal.rospyinfo(): topic[/camera/color/camera_info] adding connection to [http://phm-rory:43643/], count 0
+2021-06-23 00:13:34,810 ERROR <PID 31969:MainProcess> rosout._SubscriberImpl._invoke_callback(): bad callback: <bound method Subscriber.callback of <message_filters.Subscriber object at 0x7f48e7a13c50>>
+Traceback (most recent call last):
+  File "/opt/ros/melodic/lib/python2.7/dist-packages/rospy/topics.py", line 750, in _invoke_callback
+    cb(msg)
+  File "/opt/ros/melodic/lib/python2.7/dist-packages/message_filters/__init__.py", line 76, in callback
+    self.signalMessage(msg)
+  File "/opt/ros/melodic/lib/python2.7/dist-packages/message_filters/__init__.py", line 58, in signalMessage
+    cb(*(msg + args))
+  File "/opt/ros/melodic/lib/python2.7/dist-packages/message_filters/__init__.py", line 225, in add
+    self.signalMessage(*msgs)
+  File "/opt/ros/melodic/lib/python2.7/dist-packages/message_filters/__init__.py", line 58, in signalMessage
+    cb(*(msg + args))
+  File "/home/phm/Development/lemanchot-system/phm_recorder.py", line 30, in callback_sync
+    dcobj.record(packet)
+  File "/home/phm/Development/lemanchot-system/phm/data_acquisition.py", line 187, in record
+    self.collectors[key].record({
+KeyError: 'timestamp'
+
+2021-06-23 00:13:34,816 INFO <PID 31969:MainProcess> rospy.internal.rospyinfo(): topic impl's ref count is zero, deleting topic /camera/color/camera_info...
+2021-06-23 00:13:34,822 INFO <PID 31969:MainProcess> rospy.internal.rospyinfo(): topic[/camera/color/camera_info] removing connection to http://phm-rory:43643/
+2021-06-23 00:13:40,444 INFO <PID 31969:MainProcess> rospy.internal.rospyinfo(): topic[/rosout] adding connection to [/rosout], count 0
+2021-06-23 00:15:53,290 INFO <PID 836:MainProcess> root.initialize_log(): Logging is configured based on the defined configuration file.
+2021-06-23 00:15:53,290 INFO <PID 836:MainProcess> root.<module>(): =============================================================
+2021-06-23 00:15:53,290 INFO <PID 836:MainProcess> root.<module>(): == LeManchot-DC System : Multi-Modal Data Acquisition      ==
+2021-06-23 00:15:53,291 INFO <PID 836:MainProcess> root.<module>(): == Laval University                                        ==
+2021-06-23 00:15:53,291 INFO <PID 836:MainProcess> root.<module>(): == @Supervisor : Professor Xavier Maldague                 ==
+2021-06-23 00:15:53,291 INFO <PID 836:MainProcess> root.<module>(): == @Researcher : Parham Nooralishahi                       ==
+2021-06-23 00:15:53,291 INFO <PID 836:MainProcess> root.<module>(): == @year @ 2021                                            ==
+2021-06-23 00:15:53,292 INFO <PID 836:MainProcess> root.<module>(): =============================================================
+2021-06-23 00:15:53,292 INFO <PID 836:MainProcess> root.main_func(): System is started!
+2021-06-23 00:15:53,292 INFO <PID 836:MainProcess> root.main_func(): starting computations on 12 cores
+2021-06-23 00:15:53,310 INFO <PID 836:MainProcess> rospy.client.init_node(): init_node, name[/lemanchot-dc_836_1624421753293], pid[836]
+2021-06-23 00:15:53,316 INFO <PID 836:MainProcess> xmlrpc.XmlRpcNode._run_init(): XML-RPC server binding to 0.0.0.0:0
+2021-06-23 00:15:53,319 INFO <PID 836:MainProcess> xmlrpc.XmlRpcNode._run_init(): Started XML-RPC server [http://phm-rory:44975/]
+2021-06-23 00:15:53,320 INFO <PID 836:MainProcess> rospy.init.start_node(): ROS Slave URI: [http://phm-rory:44975/]
+2021-06-23 00:15:53,321 INFO <PID 836:MainProcess> rospy.impl.masterslave.ROSHandler._ready(): _ready: http://phm-rory:44975/
+2021-06-23 00:15:53,323 INFO <PID 836:MainProcess> xmlrpc.XmlRpcNode._run_init(): xml rpc node: starting XML-RPC server
+2021-06-23 00:15:53,327 INFO <PID 836:MainProcess> rospy.registration.RegManager.start(): Registering with master node http://localhost:11311
+2021-06-23 00:15:53,422 INFO <PID 836:MainProcess> rospy.init.start_node(): registered with master
+2021-06-23 00:15:53,423 INFO <PID 836:MainProcess> rospy.rosout.init_rosout(): initializing /rosout core topic
+2021-06-23 00:15:53,429 INFO <PID 836:MainProcess> rospy.rosout.init_rosout(): connected to core topic /rosout
+2021-06-23 00:15:53,431 INFO <PID 836:MainProcess> rospy.simtime.init_simtime(): /use_sim_time is not set, will not subscribe to simulated time [/clock] topic
+2021-06-23 00:15:53,444 INFO <PID 836:MainProcess> root.begin_recording(): Collector visible_camera is initiated and started to run ...
+2021-06-23 00:15:53,448 INFO <PID 836:MainProcess> root.get_instance(): LeManchot-DC is initialized.
+2021-06-23 00:15:53,457 INFO <PID 836:MainProcess> rospy.internal.rospyinfo(): topic[/camera/color/image_raw] adding connection to [http://phm-rory:43643/], count 0
+2021-06-23 00:15:53,463 INFO <PID 836:MainProcess> rospy.internal.rospyinfo(): topic[/camera/color/camera_info] adding connection to [http://phm-rory:43643/], count 0
+2021-06-23 00:17:34,918 INFO <PID 1890:MainProcess> root.initialize_log(): Logging is configured based on the defined configuration file.
+2021-06-23 00:17:34,919 INFO <PID 1890:MainProcess> root.<module>(): =============================================================
+2021-06-23 00:17:34,919 INFO <PID 1890:MainProcess> root.<module>(): == LeManchot-DC System : Multi-Modal Data Acquisition      ==
+2021-06-23 00:17:34,919 INFO <PID 1890:MainProcess> root.<module>(): == Laval University                                        ==
+2021-06-23 00:17:34,920 INFO <PID 1890:MainProcess> root.<module>(): == @Supervisor : Professor Xavier Maldague                 ==
+2021-06-23 00:17:34,920 INFO <PID 1890:MainProcess> root.<module>(): == @Researcher : Parham Nooralishahi                       ==
+2021-06-23 00:17:34,920 INFO <PID 1890:MainProcess> root.<module>(): == @year @ 2021                                            ==
+2021-06-23 00:17:34,921 INFO <PID 1890:MainProcess> root.<module>(): =============================================================
+2021-06-23 00:17:34,921 INFO <PID 1890:MainProcess> root.main_func(): System is started!
+2021-06-23 00:17:34,921 INFO <PID 1890:MainProcess> root.main_func(): starting computations on 12 cores
+2021-06-23 00:17:34,949 INFO <PID 1890:MainProcess> rospy.client.init_node(): init_node, name[/lemanchot-dc_1890_1624421854922], pid[1890]
+2021-06-23 00:17:34,951 INFO <PID 1890:MainProcess> xmlrpc.XmlRpcNode._run_init(): XML-RPC server binding to 0.0.0.0:0
+2021-06-23 00:17:34,953 INFO <PID 1890:MainProcess> xmlrpc.XmlRpcNode._run_init(): Started XML-RPC server [http://phm-rory:34655/]
+2021-06-23 00:17:34,953 INFO <PID 1890:MainProcess> rospy.init.start_node(): ROS Slave URI: [http://phm-rory:34655/]
+2021-06-23 00:17:34,953 INFO <PID 1890:MainProcess> rospy.impl.masterslave.ROSHandler._ready(): _ready: http://phm-rory:34655/
+2021-06-23 00:17:34,955 INFO <PID 1890:MainProcess> xmlrpc.XmlRpcNode._run_init(): xml rpc node: starting XML-RPC server
+2021-06-23 00:17:34,962 INFO <PID 1890:MainProcess> rospy.registration.RegManager.start(): Registering with master node http://localhost:11311
+2021-06-23 00:17:35,054 INFO <PID 1890:MainProcess> rospy.init.start_node(): registered with master
+2021-06-23 00:17:35,054 INFO <PID 1890:MainProcess> rospy.rosout.init_rosout(): initializing /rosout core topic
+2021-06-23 00:17:35,061 INFO <PID 1890:MainProcess> rospy.rosout.init_rosout(): connected to core topic /rosout
+2021-06-23 00:17:35,063 INFO <PID 1890:MainProcess> rospy.simtime.init_simtime(): /use_sim_time is not set, will not subscribe to simulated time [/clock] topic
+2021-06-23 00:17:35,075 INFO <PID 1890:MainProcess> root.begin_recording(): Collector visible_camera is initiated and started to run ...
+2021-06-23 00:17:35,077 INFO <PID 1890:MainProcess> root.get_instance(): LeManchot-DC is initialized.
+2021-06-23 00:17:35,079 INFO <PID 1890:MainProcess> rospy.internal.rospyinfo(): topic[/camera/color/image_raw] adding connection to [http://phm-rory:43643/], count 0
+2021-06-23 00:17:35,088 INFO <PID 1890:MainProcess> rospy.internal.rospyinfo(): topic[/camera/color/camera_info] adding connection to [http://phm-rory:43643/], count 0
+2021-06-23 00:17:38,628 INFO <PID 1890:MainProcess> rospy.internal.rospyinfo(): topic impl's ref count is zero, deleting topic /camera/color/camera_info...
+2021-06-23 00:17:38,629 INFO <PID 1890:MainProcess> rospy.internal.rospyinfo(): topic[/camera/color/camera_info] removing connection to http://phm-rory:43643/
+2021-06-23 00:17:38,613 ERROR <PID 1890:MainProcess> rosout._SubscriberImpl._invoke_callback(): bad callback: <bound method Subscriber.callback of <message_filters.Subscriber object at 0x7faade8d0850>>
+Traceback (most recent call last):
+  File "/opt/ros/melodic/lib/python2.7/dist-packages/rospy/topics.py", line 750, in _invoke_callback
+    cb(msg)
+  File "/opt/ros/melodic/lib/python2.7/dist-packages/message_filters/__init__.py", line 76, in callback
+    self.signalMessage(msg)
+  File "/opt/ros/melodic/lib/python2.7/dist-packages/message_filters/__init__.py", line 58, in signalMessage
+    cb(*(msg + args))
+  File "/opt/ros/melodic/lib/python2.7/dist-packages/message_filters/__init__.py", line 225, in add
+    self.signalMessage(*msgs)
+  File "/opt/ros/melodic/lib/python2.7/dist-packages/message_filters/__init__.py", line 58, in signalMessage
+    cb(*(msg + args))
+  File "/home/phm/Development/lemanchot-system/phm_recorder.py", line 30, in callback_sync
+    dcobj.record(packet)
+  File "/home/phm/Development/lemanchot-system/phm/data_acquisition.py", line 187, in record
+    self.collectors[key].record({
+KeyError: 'timestamp'
+
+2021-06-23 00:20:53,109 INFO <PID 4173:MainProcess> root.initialize_log(): Logging is configured based on the defined configuration file.
+2021-06-23 00:20:53,110 INFO <PID 4173:MainProcess> root.<module>(): =============================================================
+2021-06-23 00:20:53,110 INFO <PID 4173:MainProcess> root.<module>(): == LeManchot-DC System : Multi-Modal Data Acquisition      ==
+2021-06-23 00:20:53,110 INFO <PID 4173:MainProcess> root.<module>(): == Laval University                                        ==
+2021-06-23 00:20:53,111 INFO <PID 4173:MainProcess> root.<module>(): == @Supervisor : Professor Xavier Maldague                 ==
+2021-06-23 00:20:53,111 INFO <PID 4173:MainProcess> root.<module>(): == @Researcher : Parham Nooralishahi                       ==
+2021-06-23 00:20:53,112 INFO <PID 4173:MainProcess> root.<module>(): == @year @ 2021                                            ==
+2021-06-23 00:20:53,112 INFO <PID 4173:MainProcess> root.<module>(): =============================================================
+2021-06-23 00:20:53,113 INFO <PID 4173:MainProcess> root.main_func(): System is started!
+2021-06-23 00:20:53,113 INFO <PID 4173:MainProcess> root.main_func(): starting computations on 12 cores
+2021-06-23 00:20:53,129 INFO <PID 4173:MainProcess> rospy.client.init_node(): init_node, name[/lemanchot-dc_4173_1624422053114], pid[4173]
+2021-06-23 00:20:53,136 INFO <PID 4173:MainProcess> xmlrpc.XmlRpcNode._run_init(): XML-RPC server binding to 0.0.0.0:0
+2021-06-23 00:20:53,140 INFO <PID 4173:MainProcess> xmlrpc.XmlRpcNode._run_init(): Started XML-RPC server [http://phm-rory:44455/]
+2021-06-23 00:20:53,141 INFO <PID 4173:MainProcess> rospy.init.start_node(): ROS Slave URI: [http://phm-rory:44455/]
+2021-06-23 00:20:53,142 INFO <PID 4173:MainProcess> rospy.impl.masterslave.ROSHandler._ready(): _ready: http://phm-rory:44455/
+2021-06-23 00:20:53,145 INFO <PID 4173:MainProcess> xmlrpc.XmlRpcNode._run_init(): xml rpc node: starting XML-RPC server
+2021-06-23 00:20:53,149 INFO <PID 4173:MainProcess> rospy.registration.RegManager.start(): Registering with master node http://localhost:11311
+2021-06-23 00:20:53,243 INFO <PID 4173:MainProcess> rospy.init.start_node(): registered with master
+2021-06-23 00:20:53,244 INFO <PID 4173:MainProcess> rospy.rosout.init_rosout(): initializing /rosout core topic
+2021-06-23 00:20:53,259 INFO <PID 4173:MainProcess> rospy.rosout.init_rosout(): connected to core topic /rosout
+2021-06-23 00:20:53,264 INFO <PID 4173:MainProcess> rospy.simtime.init_simtime(): /use_sim_time is not set, will not subscribe to simulated time [/clock] topic
+2021-06-23 00:20:53,289 INFO <PID 4173:MainProcess> root.begin_recording(): Collector visible_camera is initiated and started to run ...
+2021-06-23 00:20:53,291 INFO <PID 4173:MainProcess> rospy.internal.rospyinfo(): topic[/camera/color/image_raw] adding connection to [http://phm-rory:43643/], count 0
+2021-06-23 00:20:53,292 INFO <PID 4173:MainProcess> root.get_instance(): LeManchot-DC is initialized.
+2021-06-23 00:20:53,310 INFO <PID 4173:MainProcess> rospy.internal.rospyinfo(): topic[/camera/color/camera_info] adding connection to [http://phm-rory:43643/], count 0
+2021-06-23 00:20:58,224 ERROR <PID 4173:MainProcess> rosout._SubscriberImpl._invoke_callback(): bad callback: <bound method Subscriber.callback of <message_filters.Subscriber object at 0x7ff8ae6792d0>>
+Traceback (most recent call last):
+  File "/opt/ros/melodic/lib/python2.7/dist-packages/rospy/topics.py", line 750, in _invoke_callback
+    cb(msg)
+  File "/opt/ros/melodic/lib/python2.7/dist-packages/message_filters/__init__.py", line 76, in callback
+    self.signalMessage(msg)
+  File "/opt/ros/melodic/lib/python2.7/dist-packages/message_filters/__init__.py", line 58, in signalMessage
+    cb(*(msg + args))
+  File "/opt/ros/melodic/lib/python2.7/dist-packages/message_filters/__init__.py", line 225, in add
+    self.signalMessage(*msgs)
+  File "/opt/ros/melodic/lib/python2.7/dist-packages/message_filters/__init__.py", line 58, in signalMessage
+    cb(*(msg + args))
+  File "/home/phm/Development/lemanchot-system/phm_recorder.py", line 30, in callback_sync
+    dcobj.record(packet)
+  File "/home/phm/Development/lemanchot-system/phm/data_acquisition.py", line 188, in record
+    self.collectors[key].record({
+KeyError: 'timestamp'
+
+2021-06-23 00:20:58,938 INFO <PID 4173:MainProcess> rospy.internal.rospyinfo(): topic impl's ref count is zero, deleting topic /camera/color/camera_info...
+2021-06-23 00:20:58,939 INFO <PID 4173:MainProcess> rospy.internal.rospyinfo(): topic[/rosout] adding connection to [/rosout], count 0
+2021-06-23 00:21:00,657 INFO <PID 4173:MainProcess> rospy.internal.rospyinfo(): topic[/camera/color/camera_info] removing connection to http://phm-rory:43643/
+2021-06-23 00:21:16,177 INFO <PID 4173:MainProcess> rospy.core.signal_shutdown(): signal_shutdown [signal-2]
+2021-06-23 00:21:16,178 INFO <PID 4173:MainProcess> root.shutdown(): Node is shutting down ...
+2021-06-23 00:21:16,184 INFO <PID 4173:MainProcess> rospy.internal.rospyinfo(): topic[/rosout] removing connection to /rosout
+2021-06-23 00:21:16,186 INFO <PID 4173:MainProcess> rospy.internal.rospyinfo(): topic[/camera/color/image_raw] removing connection to http://phm-rory:43643/
+2021-06-23 00:21:16,187 INFO <PID 4173:MainProcess> rospy.impl.masterslave.ROSHandler._shutdown(): signal-2
+2021-06-23 00:21:16,784 INFO <PID 4173:MainProcess> root.terminate(): LeManchot-dc is shutting down ...
+2021-06-23 00:21:18,785 INFO <PID 4173:MainProcess> root.end_recording(): Collector visible_camera is terminated.
+2021-06-23 00:21:18,786 INFO <PID 4173:MainProcess> root.main_func(): System is terminated!
+2021-06-23 00:21:19,565 INFO <PID 4173:MainProcess> rospy.core.signal_shutdown(): signal_shutdown [atexit]
+2021-06-23 00:24:36,173 INFO <PID 6218:MainProcess> root.initialize_log(): Logging is configured based on the defined configuration file.
+2021-06-23 00:24:36,173 INFO <PID 6218:MainProcess> root.<module>(): =============================================================
+2021-06-23 00:24:36,173 INFO <PID 6218:MainProcess> root.<module>(): == LeManchot-DC System : Multi-Modal Data Acquisition      ==
+2021-06-23 00:24:36,174 INFO <PID 6218:MainProcess> root.<module>(): == Laval University                                        ==
+2021-06-23 00:24:36,174 INFO <PID 6218:MainProcess> root.<module>(): == @Supervisor : Professor Xavier Maldague                 ==
+2021-06-23 00:24:36,174 INFO <PID 6218:MainProcess> root.<module>(): == @Researcher : Parham Nooralishahi                       ==
+2021-06-23 00:24:36,175 INFO <PID 6218:MainProcess> root.<module>(): == @year @ 2021                                            ==
+2021-06-23 00:24:36,175 INFO <PID 6218:MainProcess> root.<module>(): =============================================================
+2021-06-23 00:24:36,175 INFO <PID 6218:MainProcess> root.main_func(): System is started!
+2021-06-23 00:24:36,175 INFO <PID 6218:MainProcess> root.main_func(): starting computations on 12 cores
+2021-06-23 00:24:36,202 INFO <PID 6218:MainProcess> rospy.client.init_node(): init_node, name[/lemanchot-dc_6218_1624422276176], pid[6218]
+2021-06-23 00:24:36,205 INFO <PID 6218:MainProcess> xmlrpc.XmlRpcNode._run_init(): XML-RPC server binding to 0.0.0.0:0
+2021-06-23 00:24:36,207 INFO <PID 6218:MainProcess> xmlrpc.XmlRpcNode._run_init(): Started XML-RPC server [http://phm-rory:37451/]
+2021-06-23 00:24:36,208 INFO <PID 6218:MainProcess> rospy.impl.masterslave.ROSHandler._ready(): _ready: http://phm-rory:37451/
+2021-06-23 00:24:36,209 INFO <PID 6218:MainProcess> rospy.init.start_node(): ROS Slave URI: [http://phm-rory:37451/]
+2021-06-23 00:24:36,211 INFO <PID 6218:MainProcess> xmlrpc.XmlRpcNode._run_init(): xml rpc node: starting XML-RPC server
+2021-06-23 00:24:36,214 INFO <PID 6218:MainProcess> rospy.registration.RegManager.start(): Registering with master node http://localhost:11311
+2021-06-23 00:24:36,310 INFO <PID 6218:MainProcess> rospy.init.start_node(): registered with master
+2021-06-23 00:24:36,311 INFO <PID 6218:MainProcess> rospy.rosout.init_rosout(): initializing /rosout core topic
+2021-06-23 00:24:36,320 INFO <PID 6218:MainProcess> rospy.rosout.init_rosout(): connected to core topic /rosout
+2021-06-23 00:24:36,322 INFO <PID 6218:MainProcess> rospy.simtime.init_simtime(): /use_sim_time is not set, will not subscribe to simulated time [/clock] topic
+2021-06-23 00:24:36,339 INFO <PID 6218:MainProcess> root.begin_recording(): Collector visible_camera is initiated and started to run ...
+2021-06-23 00:24:36,341 INFO <PID 6218:MainProcess> root.get_instance(): LeManchot-DC is initialized.
+2021-06-23 00:24:36,346 INFO <PID 6218:MainProcess> rospy.internal.rospyinfo(): topic[/camera/color/image_raw] adding connection to [http://phm-rory:43643/], count 0
+2021-06-23 00:24:36,352 INFO <PID 6218:MainProcess> rospy.internal.rospyinfo(): topic[/camera/color/camera_info] adding connection to [http://phm-rory:43643/], count 0
+2021-06-23 00:24:36,369 INFO <PID 6218:MainProcess> rospy.internal.rospyinfo(): topic impl's ref count is zero, deleting topic /camera/color/camera_info...
+2021-06-23 00:24:36,371 INFO <PID 6218:MainProcess> rospy.internal.rospyinfo(): topic[/camera/color/camera_info] removing connection to http://phm-rory:43643/
+2021-06-23 00:26:05,376 INFO <PID 6942:MainProcess> root.initialize_log(): Logging is configured based on the defined configuration file.
+2021-06-23 00:26:05,377 INFO <PID 6942:MainProcess> root.<module>(): =============================================================
+2021-06-23 00:26:05,378 INFO <PID 6942:MainProcess> root.<module>(): == LeManchot-DC System : Multi-Modal Data Acquisition      ==
+2021-06-23 00:26:05,378 INFO <PID 6942:MainProcess> root.<module>(): == Laval University                                        ==
+2021-06-23 00:26:05,379 INFO <PID 6942:MainProcess> root.<module>(): == @Supervisor : Professor Xavier Maldague                 ==
+2021-06-23 00:26:05,379 INFO <PID 6942:MainProcess> root.<module>(): == @Researcher : Parham Nooralishahi                       ==
+2021-06-23 00:26:05,380 INFO <PID 6942:MainProcess> root.<module>(): == @year @ 2021                                            ==
+2021-06-23 00:26:05,380 INFO <PID 6942:MainProcess> root.<module>(): =============================================================
+2021-06-23 00:26:05,381 INFO <PID 6942:MainProcess> root.main_func(): System is started!
+2021-06-23 00:26:05,381 INFO <PID 6942:MainProcess> root.main_func(): starting computations on 12 cores
+2021-06-23 00:26:05,410 INFO <PID 6942:MainProcess> rospy.client.init_node(): init_node, name[/lemanchot-dc_6942_1624422365383], pid[6942]
+2021-06-23 00:26:05,412 INFO <PID 6942:MainProcess> xmlrpc.XmlRpcNode._run_init(): XML-RPC server binding to 0.0.0.0:0
+2021-06-23 00:26:05,414 INFO <PID 6942:MainProcess> xmlrpc.XmlRpcNode._run_init(): Started XML-RPC server [http://phm-rory:40481/]
+2021-06-23 00:26:05,414 INFO <PID 6942:MainProcess> rospy.init.start_node(): ROS Slave URI: [http://phm-rory:40481/]
+2021-06-23 00:26:05,415 INFO <PID 6942:MainProcess> rospy.impl.masterslave.ROSHandler._ready(): _ready: http://phm-rory:40481/
+2021-06-23 00:26:05,417 INFO <PID 6942:MainProcess> xmlrpc.XmlRpcNode._run_init(): xml rpc node: starting XML-RPC server
+2021-06-23 00:26:05,420 INFO <PID 6942:MainProcess> rospy.registration.RegManager.start(): Registering with master node http://localhost:11311
+2021-06-23 00:26:05,516 INFO <PID 6942:MainProcess> rospy.init.start_node(): registered with master
+2021-06-23 00:26:05,517 INFO <PID 6942:MainProcess> rospy.rosout.init_rosout(): initializing /rosout core topic
+2021-06-23 00:26:05,527 INFO <PID 6942:MainProcess> rospy.rosout.init_rosout(): connected to core topic /rosout
+2021-06-23 00:26:05,530 INFO <PID 6942:MainProcess> rospy.simtime.init_simtime(): /use_sim_time is not set, will not subscribe to simulated time [/clock] topic
+2021-06-23 00:26:05,543 INFO <PID 6942:MainProcess> root.begin_recording(): Collector visible_camera is initiated and started to run ...
+2021-06-23 00:26:05,546 INFO <PID 6942:MainProcess> root.get_instance(): LeManchot-DC is initialized.
+2021-06-23 00:26:05,547 INFO <PID 6942:MainProcess> rospy.internal.rospyinfo(): topic[/camera/color/image_raw] adding connection to [http://phm-rory:43643/], count 0
+2021-06-23 00:26:05,555 INFO <PID 6942:MainProcess> rospy.internal.rospyinfo(): topic[/camera/color/camera_info] adding connection to [http://phm-rory:43643/], count 0
+2021-06-23 00:26:05,582 INFO <PID 6942:MainProcess> rospy.internal.rospyinfo(): topic impl's ref count is zero, deleting topic /camera/color/camera_info...
+2021-06-23 00:26:05,584 INFO <PID 6942:MainProcess> rospy.internal.rospyinfo(): topic[/camera/color/camera_info] removing connection to http://phm-rory:43643/
+2021-06-23 00:26:05,747 INFO <PID 6942:MainProcess> rospy.internal.rospyinfo(): topic[/rosout] adding connection to [/rosout], count 0
+2021-06-23 00:26:07,509 ERROR <PID 6942:MainProcess> rosout._SubscriberImpl._invoke_callback(): bad callback: <bound method Subscriber.callback of <message_filters.Subscriber object at 0x7f58cb322e50>>
+Traceback (most recent call last):
+  File "/opt/ros/melodic/lib/python2.7/dist-packages/rospy/topics.py", line 750, in _invoke_callback
+    cb(msg)
+  File "/opt/ros/melodic/lib/python2.7/dist-packages/message_filters/__init__.py", line 76, in callback
+    self.signalMessage(msg)
+  File "/opt/ros/melodic/lib/python2.7/dist-packages/message_filters/__init__.py", line 58, in signalMessage
+    cb(*(msg + args))
+  File "/opt/ros/melodic/lib/python2.7/dist-packages/message_filters/__init__.py", line 225, in add
+    self.signalMessage(*msgs)
+  File "/opt/ros/melodic/lib/python2.7/dist-packages/message_filters/__init__.py", line 58, in signalMessage
+    cb(*(msg + args))
+  File "/home/phm/Development/lemanchot-system/phm_recorder.py", line 30, in callback_sync
+    dcobj.record(packet)
+  File "/home/phm/Development/lemanchot-system/phm/data_acquisition.py", line 189, in record
+    data_label : value
+  File "/home/phm/Development/lemanchot-system/phm/data_acquisition.py", line 66, in record
+    self.record_queue.put_nowait(data)
+  File "/home/phm/Softwares/anaconda3/envs/ros/lib/python3.7/queue.py", line 190, in put_nowait
+    return self.put(item, block=False)
+  File "/home/phm/Softwares/anaconda3/envs/ros/lib/python3.7/queue.py", line 136, in put
+    raise Full
+queue.Full
+
+2021-06-23 00:55:39,051 INFO <PID 20403:MainProcess> root.initialize_log(): Logging is configured based on the defined configuration file.
+2021-06-23 00:55:39,051 INFO <PID 20403:MainProcess> root.<module>(): =============================================================
+2021-06-23 00:55:39,051 INFO <PID 20403:MainProcess> root.<module>(): == LeManchot-DC System : Multi-Modal Data Acquisition      ==
+2021-06-23 00:55:39,051 INFO <PID 20403:MainProcess> root.<module>(): == Laval University                                        ==
+2021-06-23 00:55:39,052 INFO <PID 20403:MainProcess> root.<module>(): == @Supervisor : Professor Xavier Maldague                 ==
+2021-06-23 00:55:39,052 INFO <PID 20403:MainProcess> root.<module>(): == @Researcher : Parham Nooralishahi                       ==
+2021-06-23 00:55:39,052 INFO <PID 20403:MainProcess> root.<module>(): == @year @ 2021                                            ==
+2021-06-23 00:55:39,052 INFO <PID 20403:MainProcess> root.<module>(): =============================================================
+2021-06-23 00:55:39,052 INFO <PID 20403:MainProcess> root.main_func(): System is started!
+2021-06-23 00:55:39,053 INFO <PID 20403:MainProcess> root.main_func(): starting computations on 12 cores
+2021-06-23 00:55:39,063 INFO <PID 20403:MainProcess> rospy.client.init_node(): init_node, name[/lemanchot-dc_20403_1624424139053], pid[20403]
+2021-06-23 00:55:39,064 INFO <PID 20403:MainProcess> xmlrpc.XmlRpcNode._run_init(): XML-RPC server binding to 0.0.0.0:0
+2021-06-23 00:55:39,065 INFO <PID 20403:MainProcess> xmlrpc.XmlRpcNode._run_init(): Started XML-RPC server [http://phm-rory:43199/]
+2021-06-23 00:55:39,065 INFO <PID 20403:MainProcess> rospy.impl.masterslave.ROSHandler._ready(): _ready: http://phm-rory:43199/
+2021-06-23 00:55:39,066 INFO <PID 20403:MainProcess> rospy.init.start_node(): ROS Slave URI: [http://phm-rory:43199/]
+2021-06-23 00:55:39,067 INFO <PID 20403:MainProcess> xmlrpc.XmlRpcNode._run_init(): xml rpc node: starting XML-RPC server
+2021-06-23 00:55:39,069 INFO <PID 20403:MainProcess> rospy.registration.RegManager.start(): Registering with master node http://localhost:11311
+2021-06-23 00:55:39,167 INFO <PID 20403:MainProcess> rospy.init.start_node(): registered with master
+2021-06-23 00:55:39,169 INFO <PID 20403:MainProcess> rospy.rosout.init_rosout(): initializing /rosout core topic
+2021-06-23 00:55:39,190 INFO <PID 20403:MainProcess> rospy.rosout.init_rosout(): connected to core topic /rosout
+2021-06-23 00:55:39,195 INFO <PID 20403:MainProcess> rospy.simtime.init_simtime(): /use_sim_time is not set, will not subscribe to simulated time [/clock] topic
+2021-06-23 00:55:39,210 INFO <PID 20403:MainProcess> root.begin_recording(): Collector visible_camera is initiated and started to run ...
+2021-06-23 00:55:39,213 INFO <PID 20403:MainProcess> root.get_instance(): LeManchot-DC is initialized.
+2021-06-23 00:55:39,216 INFO <PID 20403:MainProcess> rospy.internal.rospyinfo(): topic[/camera/color/image_raw] adding connection to [http://phm-rory:43643/], count 0
+2021-06-23 00:55:39,220 INFO <PID 20403:MainProcess> rospy.internal.rospyinfo(): topic[/camera/color/camera_info] adding connection to [http://phm-rory:43643/], count 0
+2021-06-23 00:55:39,256 INFO <PID 20403:MainProcess> rospy.internal.rospyinfo(): topic impl's ref count is zero, deleting topic /camera/color/camera_info...
+2021-06-23 00:55:39,257 INFO <PID 20403:MainProcess> rospy.internal.rospyinfo(): topic[/camera/color/camera_info] removing connection to http://phm-rory:43643/
+2021-06-23 00:55:39,475 INFO <PID 20403:MainProcess> rospy.internal.rospyinfo(): topic[/rosout] adding connection to [/rosout], count 0
+2021-06-23 00:56:19,143 INFO <PID 20403:MainProcess> rospy.core.signal_shutdown(): signal_shutdown [signal-2]
+2021-06-23 00:56:19,143 INFO <PID 20403:MainProcess> root.shutdown(): Node is shutting down ...
+2021-06-23 00:56:19,145 INFO <PID 20403:MainProcess> rospy.internal.rospyinfo(): topic[/rosout] removing connection to /rosout
+2021-06-23 00:56:19,146 INFO <PID 20403:MainProcess> rospy.internal.rospyinfo(): topic[/camera/color/image_raw] removing connection to http://phm-rory:43643/
+2021-06-23 00:56:19,147 INFO <PID 20403:MainProcess> rospy.impl.masterslave.ROSHandler._shutdown(): signal-2
+2021-06-23 00:56:19,148 WARNING <PID 20403:MainProcess> rospy.internal.rospywarn(): Unknown error initiating TCP/IP socket to phm-rory:51021 (http://phm-rory:43643/): Traceback (most recent call last):
+  File "/opt/ros/melodic/lib/python2.7/dist-packages/rospy/impl/tcpros_base.py", line 562, in connect
+    self.read_header()
+  File "/opt/ros/melodic/lib/python2.7/dist-packages/rospy/impl/tcpros_base.py", line 657, in read_header
+    self._validate_header(read_ros_handshake_header(sock, self.read_buff, self.protocol.buff_size))
+AttributeError: 'NoneType' object has no attribute 'buff_size'
+
+2021-06-23 00:56:19,747 INFO <PID 20403:MainProcess> root.terminate(): LeManchot-dc is shutting down ...
+2021-06-23 00:56:19,805 INFO <PID 20403:MainProcess> root.end_recording(): Collector visible_camera is terminated.
+2021-06-23 00:56:19,810 INFO <PID 20403:MainProcess> root.main_func(): System is terminated!
+2021-06-23 00:56:20,482 INFO <PID 20403:MainProcess> rospy.core.signal_shutdown(): signal_shutdown [atexit]
+2021-06-23 01:07:05,210 INFO <PID 27211:MainProcess> root.initialize_log(): Logging is configured based on the defined configuration file.
+2021-06-23 01:07:05,210 INFO <PID 27211:MainProcess> root.<module>(): =============================================================
+2021-06-23 01:07:05,211 INFO <PID 27211:MainProcess> root.<module>(): == LeManchot-DC System : Multi-Modal Data Acquisition      ==
+2021-06-23 01:07:05,211 INFO <PID 27211:MainProcess> root.<module>(): == Laval University                                        ==
+2021-06-23 01:07:05,211 INFO <PID 27211:MainProcess> root.<module>(): == @Supervisor : Professor Xavier Maldague                 ==
+2021-06-23 01:07:05,211 INFO <PID 27211:MainProcess> root.<module>(): == @Researcher : Parham Nooralishahi                       ==
+2021-06-23 01:07:05,211 INFO <PID 27211:MainProcess> root.<module>(): == @year @ 2021                                            ==
+2021-06-23 01:07:05,211 INFO <PID 27211:MainProcess> root.<module>(): =============================================================
+2021-06-23 01:07:05,212 INFO <PID 27211:MainProcess> root.main_func(): System is started!
+2021-06-23 01:07:05,212 INFO <PID 27211:MainProcess> root.main_func(): starting computations on 12 cores
+2021-06-23 01:07:05,222 INFO <PID 27211:MainProcess> rospy.client.init_node(): init_node, name[/lemanchot-dc_27211_1624424825212], pid[27211]
+2021-06-23 01:07:05,224 INFO <PID 27211:MainProcess> xmlrpc.XmlRpcNode._run_init(): XML-RPC server binding to 0.0.0.0:0
+2021-06-23 01:07:05,225 INFO <PID 27211:MainProcess> xmlrpc.XmlRpcNode._run_init(): Started XML-RPC server [http://phm-rory:33671/]
+2021-06-23 01:07:05,225 INFO <PID 27211:MainProcess> rospy.init.start_node(): ROS Slave URI: [http://phm-rory:33671/]
+2021-06-23 01:07:05,226 INFO <PID 27211:MainProcess> rospy.impl.masterslave.ROSHandler._ready(): _ready: http://phm-rory:33671/
+2021-06-23 01:07:05,227 INFO <PID 27211:MainProcess> xmlrpc.XmlRpcNode._run_init(): xml rpc node: starting XML-RPC server
+2021-06-23 01:07:05,229 INFO <PID 27211:MainProcess> rospy.registration.RegManager.start(): Registering with master node http://localhost:11311
+2021-06-23 01:07:05,326 INFO <PID 27211:MainProcess> rospy.init.start_node(): registered with master
+2021-06-23 01:07:05,328 INFO <PID 27211:MainProcess> rospy.rosout.init_rosout(): initializing /rosout core topic
+2021-06-23 01:07:05,340 INFO <PID 27211:MainProcess> rospy.rosout.init_rosout(): connected to core topic /rosout
+2021-06-23 01:07:05,344 INFO <PID 27211:MainProcess> rospy.simtime.init_simtime(): /use_sim_time is not set, will not subscribe to simulated time [/clock] topic
+2021-06-23 01:07:05,368 INFO <PID 27211:MainProcess> root.begin_recording(): Collector visible_camera is initiated and started to run ...
+2021-06-23 01:07:05,371 INFO <PID 27211:MainProcess> rospy.internal.rospyinfo(): topic[/camera/color/image_raw] adding connection to [http://phm-rory:43643/], count 0
+2021-06-23 01:07:05,373 INFO <PID 27211:MainProcess> root.get_instance(): LeManchot-DC is initialized.
+2021-06-23 01:07:05,381 INFO <PID 27211:MainProcess> rospy.internal.rospyinfo(): topic[/camera/color/camera_info] adding connection to [http://phm-rory:43643/], count 0
+2021-06-23 01:07:05,389 INFO <PID 27211:MainProcess> rospy.internal.rospyinfo(): topic impl's ref count is zero, deleting topic /camera/color/camera_info...
+2021-06-23 01:07:05,390 INFO <PID 27211:MainProcess> rospy.internal.rospyinfo(): topic[/camera/color/camera_info] removing connection to http://phm-rory:43643/
+2021-06-23 01:07:05,392 WARNING <PID 27211:MainProcess> rospy.internal.rospywarn(): Unknown error initiating TCP/IP socket to phm-rory:51021 (http://phm-rory:43643/): Traceback (most recent call last):
+  File "/opt/ros/melodic/lib/python2.7/dist-packages/rospy/impl/tcpros_base.py", line 563, in connect
+    self.local_endpoint = self.socket.getsockname()
+AttributeError: 'NoneType' object has no attribute 'getsockname'
+
+2021-06-23 01:07:05,600 INFO <PID 27211:MainProcess> rospy.internal.rospyinfo(): topic[/rosout] adding connection to [/rosout], count 0
+2021-06-23 01:07:17,062 INFO <PID 27211:MainProcess> rospy.core.signal_shutdown(): signal_shutdown [signal-2]
+2021-06-23 01:07:17,063 INFO <PID 27211:MainProcess> root.shutdown(): Node is shutting down ...
+2021-06-23 01:07:17,065 INFO <PID 27211:MainProcess> rospy.internal.rospyinfo(): topic[/rosout] removing connection to /rosout
+2021-06-23 01:07:17,066 INFO <PID 27211:MainProcess> rospy.internal.rospyinfo(): topic[/camera/color/image_raw] removing connection to http://phm-rory:43643/
+2021-06-23 01:07:17,067 INFO <PID 27211:MainProcess> rospy.impl.masterslave.ROSHandler._shutdown(): signal-2
+2021-06-23 01:07:17,671 INFO <PID 27211:MainProcess> root.terminate(): LeManchot-dc is shutting down ...
+2021-06-23 01:07:17,840 INFO <PID 27211:MainProcess> root.end_recording(): Collector visible_camera is terminated.
+2021-06-23 01:07:17,841 INFO <PID 27211:MainProcess> root.main_func(): System is terminated!
+2021-06-23 01:07:18,475 INFO <PID 27211:MainProcess> rospy.core.signal_shutdown(): signal_shutdown [atexit]
+2021-06-23 01:08:00,778 INFO <PID 28068:MainProcess> root.initialize_log(): Logging is configured based on the defined configuration file.
+2021-06-23 01:08:00,778 INFO <PID 28068:MainProcess> root.<module>(): =============================================================
+2021-06-23 01:08:00,778 INFO <PID 28068:MainProcess> root.<module>(): == LeManchot-DC System : Multi-Modal Data Acquisition      ==
+2021-06-23 01:08:00,779 INFO <PID 28068:MainProcess> root.<module>(): == Laval University                                        ==
+2021-06-23 01:08:00,779 INFO <PID 28068:MainProcess> root.<module>(): == @Supervisor : Professor Xavier Maldague                 ==
+2021-06-23 01:08:00,779 INFO <PID 28068:MainProcess> root.<module>(): == @Researcher : Parham Nooralishahi                       ==
+2021-06-23 01:08:00,779 INFO <PID 28068:MainProcess> root.<module>(): == @year @ 2021                                            ==
+2021-06-23 01:08:00,779 INFO <PID 28068:MainProcess> root.<module>(): =============================================================
+2021-06-23 01:08:00,780 INFO <PID 28068:MainProcess> root.main_func(): System is started!
+2021-06-23 01:08:00,780 INFO <PID 28068:MainProcess> root.main_func(): starting computations on 12 cores
+2021-06-23 01:08:00,790 INFO <PID 28068:MainProcess> rospy.client.init_node(): init_node, name[/lemanchot-dc_28068_1624424880780], pid[28068]
+2021-06-23 01:08:00,792 INFO <PID 28068:MainProcess> xmlrpc.XmlRpcNode._run_init(): XML-RPC server binding to 0.0.0.0:0
+2021-06-23 01:08:00,793 INFO <PID 28068:MainProcess> xmlrpc.XmlRpcNode._run_init(): Started XML-RPC server [http://phm-rory:44493/]
+2021-06-23 01:08:00,793 INFO <PID 28068:MainProcess> rospy.init.start_node(): ROS Slave URI: [http://phm-rory:44493/]
+2021-06-23 01:08:00,793 INFO <PID 28068:MainProcess> rospy.impl.masterslave.ROSHandler._ready(): _ready: http://phm-rory:44493/
+2021-06-23 01:08:00,794 INFO <PID 28068:MainProcess> xmlrpc.XmlRpcNode._run_init(): xml rpc node: starting XML-RPC server
+2021-06-23 01:08:00,796 INFO <PID 28068:MainProcess> rospy.registration.RegManager.start(): Registering with master node http://localhost:11311
+2021-06-23 01:08:00,894 INFO <PID 28068:MainProcess> rospy.init.start_node(): registered with master
+2021-06-23 01:08:00,894 INFO <PID 28068:MainProcess> rospy.rosout.init_rosout(): initializing /rosout core topic
+2021-06-23 01:08:00,902 INFO <PID 28068:MainProcess> rospy.rosout.init_rosout(): connected to core topic /rosout
+2021-06-23 01:08:00,905 INFO <PID 28068:MainProcess> rospy.simtime.init_simtime(): /use_sim_time is not set, will not subscribe to simulated time [/clock] topic
+2021-06-23 01:08:00,921 INFO <PID 28068:MainProcess> root.begin_recording(): Collector visible_camera is initiated and started to run ...
+2021-06-23 01:08:00,925 INFO <PID 28068:MainProcess> root.get_instance(): LeManchot-DC is initialized.
+2021-06-23 01:08:00,929 INFO <PID 28068:MainProcess> rospy.internal.rospyinfo(): topic[/camera/color/image_raw] adding connection to [http://phm-rory:43643/], count 0
+2021-06-23 01:08:00,937 INFO <PID 28068:MainProcess> rospy.internal.rospyinfo(): topic[/camera/color/camera_info] adding connection to [http://phm-rory:43643/], count 0
+2021-06-23 01:08:00,963 INFO <PID 28068:MainProcess> rospy.internal.rospyinfo(): topic impl's ref count is zero, deleting topic /camera/color/camera_info...
+2021-06-23 01:08:00,964 INFO <PID 28068:MainProcess> rospy.internal.rospyinfo(): topic[/camera/color/camera_info] removing connection to http://phm-rory:43643/
+2021-06-23 01:08:00,967 WARNING <PID 28068:MainProcess> rospy.internal.rospywarn(): Unknown error initiating TCP/IP socket to phm-rory:51021 (http://phm-rory:43643/): Traceback (most recent call last):
+  File "/opt/ros/melodic/lib/python2.7/dist-packages/rospy/impl/tcpros_base.py", line 563, in connect
+    self.local_endpoint = self.socket.getsockname()
+AttributeError: 'NoneType' object has no attribute 'getsockname'
+
+2021-06-23 01:08:01,195 INFO <PID 28068:MainProcess> rospy.internal.rospyinfo(): topic[/rosout] adding connection to [/rosout], count 0
+2021-06-23 01:08:08,190 INFO <PID 28068:MainProcess> rospy.core.signal_shutdown(): signal_shutdown [signal-2]
+2021-06-23 01:08:08,190 INFO <PID 28068:MainProcess> root.shutdown(): Node is shutting down ...
+2021-06-23 01:08:08,193 INFO <PID 28068:MainProcess> rospy.internal.rospyinfo(): topic[/rosout] removing connection to /rosout
+2021-06-23 01:08:08,193 INFO <PID 28068:MainProcess> rospy.internal.rospyinfo(): topic[/camera/color/image_raw] removing connection to http://phm-rory:43643/
+2021-06-23 01:08:08,194 INFO <PID 28068:MainProcess> rospy.impl.masterslave.ROSHandler._shutdown(): signal-2
+2021-06-23 01:08:08,195 WARNING <PID 28068:MainProcess> rospy.internal.rospywarn(): Unknown error initiating TCP/IP socket to phm-rory:51021 (http://phm-rory:43643/): Traceback (most recent call last):
+  File "/opt/ros/melodic/lib/python2.7/dist-packages/rospy/impl/tcpros_base.py", line 562, in connect
+    self.read_header()
+  File "/opt/ros/melodic/lib/python2.7/dist-packages/rospy/impl/tcpros_base.py", line 657, in read_header
+    self._validate_header(read_ros_handshake_header(sock, self.read_buff, self.protocol.buff_size))
+AttributeError: 'NoneType' object has no attribute 'buff_size'
+
+2021-06-23 01:08:08,797 INFO <PID 28068:MainProcess> root.terminate(): LeManchot-dc is shutting down ...
+2021-06-23 01:08:08,853 INFO <PID 28068:MainProcess> root.end_recording(): Collector visible_camera is terminated.
+2021-06-23 01:08:08,853 INFO <PID 28068:MainProcess> root.main_func(): System is terminated!
+2021-06-23 01:08:09,525 INFO <PID 28068:MainProcess> rospy.core.signal_shutdown(): signal_shutdown [atexit]
+2021-06-23 01:08:28,849 INFO <PID 28559:MainProcess> root.initialize_log(): Logging is configured based on the defined configuration file.
+2021-06-23 01:08:28,850 INFO <PID 28559:MainProcess> root.<module>(): =============================================================
+2021-06-23 01:08:28,850 INFO <PID 28559:MainProcess> root.<module>(): == LeManchot-DC System : Multi-Modal Data Acquisition      ==
+2021-06-23 01:08:28,850 INFO <PID 28559:MainProcess> root.<module>(): == Laval University                                        ==
+2021-06-23 01:08:28,850 INFO <PID 28559:MainProcess> root.<module>(): == @Supervisor : Professor Xavier Maldague                 ==
+2021-06-23 01:08:28,850 INFO <PID 28559:MainProcess> root.<module>(): == @Researcher : Parham Nooralishahi                       ==
+2021-06-23 01:08:28,850 INFO <PID 28559:MainProcess> root.<module>(): == @year @ 2021                                            ==
+2021-06-23 01:08:28,850 INFO <PID 28559:MainProcess> root.<module>(): =============================================================
+2021-06-23 01:08:28,851 INFO <PID 28559:MainProcess> root.main_func(): System is started!
+2021-06-23 01:08:28,851 INFO <PID 28559:MainProcess> root.main_func(): starting computations on 12 cores
+2021-06-23 01:08:28,861 INFO <PID 28559:MainProcess> rospy.client.init_node(): init_node, name[/lemanchot-dc_28559_1624424908851], pid[28559]
+2021-06-23 01:08:28,862 INFO <PID 28559:MainProcess> xmlrpc.XmlRpcNode._run_init(): XML-RPC server binding to 0.0.0.0:0
+2021-06-23 01:08:28,863 INFO <PID 28559:MainProcess> xmlrpc.XmlRpcNode._run_init(): Started XML-RPC server [http://phm-rory:35601/]
+2021-06-23 01:08:28,863 INFO <PID 28559:MainProcess> rospy.init.start_node(): ROS Slave URI: [http://phm-rory:35601/]
+2021-06-23 01:08:28,864 INFO <PID 28559:MainProcess> rospy.impl.masterslave.ROSHandler._ready(): _ready: http://phm-rory:35601/
+2021-06-23 01:08:28,865 INFO <PID 28559:MainProcess> xmlrpc.XmlRpcNode._run_init(): xml rpc node: starting XML-RPC server
+2021-06-23 01:08:28,867 INFO <PID 28559:MainProcess> rospy.registration.RegManager.start(): Registering with master node http://localhost:11311
+2021-06-23 01:08:28,964 INFO <PID 28559:MainProcess> rospy.init.start_node(): registered with master
+2021-06-23 01:08:28,965 INFO <PID 28559:MainProcess> rospy.rosout.init_rosout(): initializing /rosout core topic
+2021-06-23 01:08:28,972 INFO <PID 28559:MainProcess> rospy.rosout.init_rosout(): connected to core topic /rosout
+2021-06-23 01:08:28,974 INFO <PID 28559:MainProcess> rospy.simtime.init_simtime(): /use_sim_time is not set, will not subscribe to simulated time [/clock] topic
+2021-06-23 01:08:28,985 INFO <PID 28559:MainProcess> root.begin_recording(): Collector visible_camera is initiated and started to run ...
+2021-06-23 01:08:28,987 INFO <PID 28559:MainProcess> root.get_instance(): LeManchot-DC is initialized.
+2021-06-23 01:08:28,990 INFO <PID 28559:MainProcess> rospy.internal.rospyinfo(): topic[/camera/color/image_raw] adding connection to [http://phm-rory:43643/], count 0
+2021-06-23 01:08:28,993 INFO <PID 28559:MainProcess> rospy.internal.rospyinfo(): topic[/camera/color/camera_info] adding connection to [http://phm-rory:43643/], count 0
+2021-06-23 01:08:29,010 INFO <PID 28559:MainProcess> rospy.internal.rospyinfo(): topic impl's ref count is zero, deleting topic /camera/color/camera_info...
+2021-06-23 01:08:29,011 INFO <PID 28559:MainProcess> rospy.internal.rospyinfo(): topic[/camera/color/camera_info] removing connection to http://phm-rory:43643/
+2021-06-23 01:08:29,240 INFO <PID 28559:MainProcess> rospy.internal.rospyinfo(): topic[/rosout] adding connection to [/rosout], count 0
+2021-06-23 01:08:40,399 INFO <PID 28559:MainProcess> rospy.core.signal_shutdown(): signal_shutdown [signal-2]
+2021-06-23 01:08:40,399 INFO <PID 28559:MainProcess> root.shutdown(): Node is shutting down ...
+2021-06-23 01:08:40,402 INFO <PID 28559:MainProcess> rospy.internal.rospyinfo(): topic[/rosout] removing connection to /rosout
+2021-06-23 01:08:40,402 INFO <PID 28559:MainProcess> rospy.internal.rospyinfo(): topic[/camera/color/image_raw] removing connection to http://phm-rory:43643/
+2021-06-23 01:08:40,403 INFO <PID 28559:MainProcess> rospy.impl.masterslave.ROSHandler._shutdown(): signal-2
+2021-06-23 01:08:40,404 WARNING <PID 28559:MainProcess> rospy.internal.rospywarn(): Unknown error initiating TCP/IP socket to phm-rory:51021 (http://phm-rory:43643/): Traceback (most recent call last):
+  File "/opt/ros/melodic/lib/python2.7/dist-packages/rospy/impl/tcpros_base.py", line 562, in connect
+    self.read_header()
+  File "/opt/ros/melodic/lib/python2.7/dist-packages/rospy/impl/tcpros_base.py", line 657, in read_header
+    self._validate_header(read_ros_handshake_header(sock, self.read_buff, self.protocol.buff_size))
+AttributeError: 'NoneType' object has no attribute 'buff_size'
+
+2021-06-23 01:08:41,002 INFO <PID 28559:MainProcess> root.terminate(): LeManchot-dc is shutting down ...
+2021-06-23 01:08:41,176 INFO <PID 28559:MainProcess> root.end_recording(): Collector visible_camera is terminated.
+2021-06-23 01:08:41,177 INFO <PID 28559:MainProcess> root.main_func(): System is terminated!
+2021-06-23 01:08:41,802 INFO <PID 28559:MainProcess> rospy.core.signal_shutdown(): signal_shutdown [atexit]
+2021-06-23 01:08:53,753 INFO <PID 29110:MainProcess> root.initialize_log(): Logging is configured based on the defined configuration file.
+2021-06-23 01:08:53,753 INFO <PID 29110:MainProcess> root.<module>(): =============================================================
+2021-06-23 01:08:53,754 INFO <PID 29110:MainProcess> root.<module>(): == LeManchot-DC System : Multi-Modal Data Acquisition      ==
+2021-06-23 01:08:53,754 INFO <PID 29110:MainProcess> root.<module>(): == Laval University                                        ==
+2021-06-23 01:08:53,754 INFO <PID 29110:MainProcess> root.<module>(): == @Supervisor : Professor Xavier Maldague                 ==
+2021-06-23 01:08:53,754 INFO <PID 29110:MainProcess> root.<module>(): == @Researcher : Parham Nooralishahi                       ==
+2021-06-23 01:08:53,754 INFO <PID 29110:MainProcess> root.<module>(): == @year @ 2021                                            ==
+2021-06-23 01:08:53,754 INFO <PID 29110:MainProcess> root.<module>(): =============================================================
+2021-06-23 01:08:53,755 INFO <PID 29110:MainProcess> root.main_func(): System is started!
+2021-06-23 01:08:53,755 INFO <PID 29110:MainProcess> root.main_func(): starting computations on 12 cores
+2021-06-23 01:08:53,765 INFO <PID 29110:MainProcess> rospy.client.init_node(): init_node, name[/lemanchot-dc_29110_1624424933755], pid[29110]
+2021-06-23 01:08:53,767 INFO <PID 29110:MainProcess> xmlrpc.XmlRpcNode._run_init(): XML-RPC server binding to 0.0.0.0:0
+2021-06-23 01:08:53,768 INFO <PID 29110:MainProcess> xmlrpc.XmlRpcNode._run_init(): Started XML-RPC server [http://phm-rory:44637/]
+2021-06-23 01:08:53,768 INFO <PID 29110:MainProcess> rospy.init.start_node(): ROS Slave URI: [http://phm-rory:44637/]
+2021-06-23 01:08:53,768 INFO <PID 29110:MainProcess> rospy.impl.masterslave.ROSHandler._ready(): _ready: http://phm-rory:44637/
+2021-06-23 01:08:53,770 INFO <PID 29110:MainProcess> xmlrpc.XmlRpcNode._run_init(): xml rpc node: starting XML-RPC server
+2021-06-23 01:08:53,772 INFO <PID 29110:MainProcess> rospy.registration.RegManager.start(): Registering with master node http://localhost:11311
+2021-06-23 01:08:53,869 INFO <PID 29110:MainProcess> rospy.init.start_node(): registered with master
+2021-06-23 01:08:53,870 INFO <PID 29110:MainProcess> rospy.rosout.init_rosout(): initializing /rosout core topic
+2021-06-23 01:08:53,883 INFO <PID 29110:MainProcess> rospy.rosout.init_rosout(): connected to core topic /rosout
+2021-06-23 01:08:53,886 INFO <PID 29110:MainProcess> rospy.simtime.init_simtime(): /use_sim_time is not set, will not subscribe to simulated time [/clock] topic
+2021-06-23 01:08:53,908 INFO <PID 29110:MainProcess> root.begin_recording(): Collector visible_camera is initiated and started to run ...
+2021-06-23 01:08:53,912 INFO <PID 29110:MainProcess> root.get_instance(): LeManchot-DC is initialized.
+2021-06-23 01:08:53,916 INFO <PID 29110:MainProcess> rospy.internal.rospyinfo(): topic[/camera/color/image_raw] adding connection to [http://phm-rory:43643/], count 0
+2021-06-23 01:08:53,923 INFO <PID 29110:MainProcess> rospy.internal.rospyinfo(): topic[/camera/color/camera_info] adding connection to [http://phm-rory:43643/], count 0
+2021-06-23 01:08:53,938 INFO <PID 29110:MainProcess> rospy.internal.rospyinfo(): topic impl's ref count is zero, deleting topic /camera/color/camera_info...
+2021-06-23 01:08:53,938 INFO <PID 29110:MainProcess> rospy.internal.rospyinfo(): topic[/camera/color/camera_info] removing connection to http://phm-rory:43643/
+2021-06-23 01:08:54,174 INFO <PID 29110:MainProcess> rospy.internal.rospyinfo(): topic[/rosout] adding connection to [/rosout], count 0
+2021-06-23 01:09:03,823 INFO <PID 29110:MainProcess> rospy.core.signal_shutdown(): signal_shutdown [signal-2]
+2021-06-23 01:09:03,823 INFO <PID 29110:MainProcess> root.shutdown(): Node is shutting down ...
+2021-06-23 01:09:03,825 INFO <PID 29110:MainProcess> rospy.internal.rospyinfo(): topic[/rosout] removing connection to /rosout
+2021-06-23 01:09:03,826 INFO <PID 29110:MainProcess> rospy.internal.rospyinfo(): topic[/camera/color/image_raw] removing connection to http://phm-rory:43643/
+2021-06-23 01:09:03,826 INFO <PID 29110:MainProcess> rospy.impl.masterslave.ROSHandler._shutdown(): signal-2
+2021-06-23 01:09:03,828 WARNING <PID 29110:MainProcess> rospy.internal.rospywarn(): Unknown error initiating TCP/IP socket to phm-rory:51021 (http://phm-rory:43643/): Traceback (most recent call last):
+  File "/opt/ros/melodic/lib/python2.7/dist-packages/rospy/impl/tcpros_base.py", line 563, in connect
+    self.local_endpoint = self.socket.getsockname()
+AttributeError: 'NoneType' object has no attribute 'getsockname'
+
+2021-06-23 01:09:04,427 INFO <PID 29110:MainProcess> root.terminate(): LeManchot-dc is shutting down ...
+2021-06-23 01:09:04,435 INFO <PID 29110:MainProcess> root.end_recording(): Collector visible_camera is terminated.
+2021-06-23 01:09:04,438 INFO <PID 29110:MainProcess> root.main_func(): System is terminated!
+2021-06-23 01:09:05,228 INFO <PID 29110:MainProcess> rospy.core.signal_shutdown(): signal_shutdown [atexit]
+2021-06-23 01:09:37,796 INFO <PID 30276:MainProcess> root.initialize_log(): Logging is configured based on the defined configuration file.
+2021-06-23 01:09:37,796 INFO <PID 30276:MainProcess> root.<module>(): =============================================================
+2021-06-23 01:09:37,796 INFO <PID 30276:MainProcess> root.<module>(): == LeManchot-DC System : Multi-Modal Data Acquisition      ==
+2021-06-23 01:09:37,796 INFO <PID 30276:MainProcess> root.<module>(): == Laval University                                        ==
+2021-06-23 01:09:37,797 INFO <PID 30276:MainProcess> root.<module>(): == @Supervisor : Professor Xavier Maldague                 ==
+2021-06-23 01:09:37,797 INFO <PID 30276:MainProcess> root.<module>(): == @Researcher : Parham Nooralishahi                       ==
+2021-06-23 01:09:37,797 INFO <PID 30276:MainProcess> root.<module>(): == @year @ 2021                                            ==
+2021-06-23 01:09:37,797 INFO <PID 30276:MainProcess> root.<module>(): =============================================================
+2021-06-23 01:09:37,798 INFO <PID 30276:MainProcess> root.main_func(): System is started!
+2021-06-23 01:09:37,798 INFO <PID 30276:MainProcess> root.main_func(): starting computations on 12 cores
+2021-06-23 01:09:37,813 INFO <PID 30276:MainProcess> rospy.client.init_node(): init_node, name[/lemanchot-dc_30276_1624424977799], pid[30276]
+2021-06-23 01:09:37,815 INFO <PID 30276:MainProcess> xmlrpc.XmlRpcNode._run_init(): XML-RPC server binding to 0.0.0.0:0
+2021-06-23 01:09:37,816 INFO <PID 30276:MainProcess> xmlrpc.XmlRpcNode._run_init(): Started XML-RPC server [http://phm-rory:39829/]
+2021-06-23 01:09:37,816 INFO <PID 30276:MainProcess> rospy.init.start_node(): ROS Slave URI: [http://phm-rory:39829/]
+2021-06-23 01:09:37,816 INFO <PID 30276:MainProcess> rospy.impl.masterslave.ROSHandler._ready(): _ready: http://phm-rory:39829/
+2021-06-23 01:09:37,817 INFO <PID 30276:MainProcess> xmlrpc.XmlRpcNode._run_init(): xml rpc node: starting XML-RPC server
+2021-06-23 01:09:37,820 INFO <PID 30276:MainProcess> rospy.registration.RegManager.start(): Registering with master node http://localhost:11311
+2021-06-23 01:09:37,917 INFO <PID 30276:MainProcess> rospy.init.start_node(): registered with master
+2021-06-23 01:09:37,918 INFO <PID 30276:MainProcess> rospy.rosout.init_rosout(): initializing /rosout core topic
+2021-06-23 01:09:37,934 INFO <PID 30276:MainProcess> rospy.rosout.init_rosout(): connected to core topic /rosout
+2021-06-23 01:09:37,939 INFO <PID 30276:MainProcess> rospy.simtime.init_simtime(): /use_sim_time is not set, will not subscribe to simulated time [/clock] topic
+2021-06-23 01:09:37,961 INFO <PID 30276:MainProcess> root.begin_recording(): Collector visible_camera is initiated and started to run ...
+2021-06-23 01:09:37,965 INFO <PID 30276:MainProcess> root.get_instance(): LeManchot-DC is initialized.
+2021-06-23 01:09:37,966 INFO <PID 30276:MainProcess> rospy.internal.rospyinfo(): topic[/camera/color/image_raw] adding connection to [http://phm-rory:43643/], count 0
+2021-06-23 01:09:37,972 INFO <PID 30276:MainProcess> rospy.internal.rospyinfo(): topic[/camera/color/camera_info] adding connection to [http://phm-rory:43643/], count 0
+2021-06-23 01:09:37,999 INFO <PID 30276:MainProcess> rospy.internal.rospyinfo(): topic impl's ref count is zero, deleting topic /camera/color/camera_info...
+2021-06-23 01:09:38,001 INFO <PID 30276:MainProcess> rospy.internal.rospyinfo(): topic[/camera/color/camera_info] removing connection to http://phm-rory:43643/
+2021-06-23 01:09:38,003 WARNING <PID 30276:MainProcess> rospy.internal.rospywarn(): Unknown error initiating TCP/IP socket to phm-rory:51021 (http://phm-rory:43643/): Traceback (most recent call last):
+  File "/opt/ros/melodic/lib/python2.7/dist-packages/rospy/impl/tcpros_base.py", line 560, in connect
+    self.socket.connect((dest_addr, dest_port))
+OSError: [Errno 9] Bad file descriptor
+
+2021-06-23 01:09:38,147 INFO <PID 30276:MainProcess> rospy.internal.rospyinfo(): topic[/rosout] adding connection to [/rosout], count 0
+2021-06-23 01:11:18,538 INFO <PID 30276:MainProcess> rospy.core.signal_shutdown(): signal_shutdown [signal-2]
+2021-06-23 01:11:18,539 INFO <PID 30276:MainProcess> root.shutdown(): Node is shutting down ...
+2021-06-23 01:11:18,545 INFO <PID 30276:MainProcess> rospy.internal.rospyinfo(): topic[/rosout] removing connection to /rosout
+2021-06-23 01:11:18,546 INFO <PID 30276:MainProcess> rospy.internal.rospyinfo(): topic[/camera/color/image_raw] removing connection to http://phm-rory:43643/
+2021-06-23 01:11:18,547 INFO <PID 30276:MainProcess> rospy.impl.masterslave.ROSHandler._shutdown(): signal-2
+2021-06-23 01:11:18,549 WARNING <PID 30276:MainProcess> rospy.internal.rospywarn(): Unknown error initiating TCP/IP socket to phm-rory:51021 (http://phm-rory:43643/): Traceback (most recent call last):
+  File "/opt/ros/melodic/lib/python2.7/dist-packages/rospy/impl/tcpros_base.py", line 562, in connect
+    self.read_header()
+  File "/opt/ros/melodic/lib/python2.7/dist-packages/rospy/impl/tcpros_base.py", line 657, in read_header
+    self._validate_header(read_ros_handshake_header(sock, self.read_buff, self.protocol.buff_size))
+AttributeError: 'NoneType' object has no attribute 'buff_size'
+
+2021-06-23 01:11:19,142 INFO <PID 30276:MainProcess> root.terminate(): LeManchot-dc is shutting down ...
+2021-06-23 01:11:21,163 INFO <PID 30276:MainProcess> root.end_recording(): Collector visible_camera is terminated.
+2021-06-23 01:11:21,163 INFO <PID 30276:MainProcess> root.main_func(): System is terminated!
+2021-06-23 01:11:21,697 INFO <PID 30276:MainProcess> rospy.core.signal_shutdown(): signal_shutdown [atexit]
+2021-06-23 01:13:30,277 INFO <PID 32251:MainProcess> root.initialize_log(): Logging is configured based on the defined configuration file.
+2021-06-23 01:13:30,278 INFO <PID 32251:MainProcess> root.<module>(): =============================================================
+2021-06-23 01:13:30,278 INFO <PID 32251:MainProcess> root.<module>(): == LeManchot-DC System : Multi-Modal Data Acquisition      ==
+2021-06-23 01:13:30,278 INFO <PID 32251:MainProcess> root.<module>(): == Laval University                                        ==
+2021-06-23 01:13:30,278 INFO <PID 32251:MainProcess> root.<module>(): == @Supervisor : Professor Xavier Maldague                 ==
+2021-06-23 01:13:30,278 INFO <PID 32251:MainProcess> root.<module>(): == @Researcher : Parham Nooralishahi                       ==
+2021-06-23 01:13:30,278 INFO <PID 32251:MainProcess> root.<module>(): == @year @ 2021                                            ==
+2021-06-23 01:13:30,279 INFO <PID 32251:MainProcess> root.<module>(): =============================================================
+2021-06-23 01:13:30,279 INFO <PID 32251:MainProcess> root.main_func(): System is started!
+2021-06-23 01:13:30,279 INFO <PID 32251:MainProcess> root.main_func(): starting computations on 12 cores
+2021-06-23 01:13:30,289 INFO <PID 32251:MainProcess> rospy.client.init_node(): init_node, name[/lemanchot-dc_32251_1624425210280], pid[32251]
+2021-06-23 01:13:30,291 INFO <PID 32251:MainProcess> xmlrpc.XmlRpcNode._run_init(): XML-RPC server binding to 0.0.0.0:0
+2021-06-23 01:13:30,292 INFO <PID 32251:MainProcess> xmlrpc.XmlRpcNode._run_init(): Started XML-RPC server [http://phm-rory:45877/]
+2021-06-23 01:13:30,292 INFO <PID 32251:MainProcess> rospy.init.start_node(): ROS Slave URI: [http://phm-rory:45877/]
+2021-06-23 01:13:30,292 INFO <PID 32251:MainProcess> rospy.impl.masterslave.ROSHandler._ready(): _ready: http://phm-rory:45877/
+2021-06-23 01:13:30,293 INFO <PID 32251:MainProcess> xmlrpc.XmlRpcNode._run_init(): xml rpc node: starting XML-RPC server
+2021-06-23 01:13:30,295 INFO <PID 32251:MainProcess> rospy.registration.RegManager.start(): Registering with master node http://localhost:11311
+2021-06-23 01:13:30,393 INFO <PID 32251:MainProcess> rospy.init.start_node(): registered with master
+2021-06-23 01:13:30,394 INFO <PID 32251:MainProcess> rospy.rosout.init_rosout(): initializing /rosout core topic
+2021-06-23 01:13:30,401 INFO <PID 32251:MainProcess> rospy.rosout.init_rosout(): connected to core topic /rosout
+2021-06-23 01:13:30,403 INFO <PID 32251:MainProcess> rospy.simtime.init_simtime(): /use_sim_time is not set, will not subscribe to simulated time [/clock] topic
+2021-06-23 01:13:30,417 INFO <PID 32251:MainProcess> root.begin_recording(): Collector visible_camera is initiated and started to run ...
+2021-06-23 01:13:30,419 INFO <PID 32251:MainProcess> root.get_instance(): LeManchot-DC is initialized.
+2021-06-23 01:13:30,424 INFO <PID 32251:MainProcess> rospy.internal.rospyinfo(): topic[/camera/color/image_raw] adding connection to [http://phm-rory:43643/], count 0
+2021-06-23 01:13:30,432 INFO <PID 32251:MainProcess> rospy.internal.rospyinfo(): topic[/camera/color/camera_info] adding connection to [http://phm-rory:43643/], count 0
+2021-06-23 01:13:30,467 INFO <PID 32251:MainProcess> rospy.internal.rospyinfo(): topic impl's ref count is zero, deleting topic /camera/color/camera_info...
+2021-06-23 01:13:30,467 INFO <PID 32251:MainProcess> rospy.internal.rospyinfo(): topic[/camera/color/camera_info] removing connection to http://phm-rory:43643/
+2021-06-23 01:13:30,470 WARNING <PID 32251:MainProcess> rospy.internal.rospywarn(): Unknown error initiating TCP/IP socket to phm-rory:51021 (http://phm-rory:43643/): Traceback (most recent call last):
+  File "/opt/ros/melodic/lib/python2.7/dist-packages/rospy/impl/tcpros_base.py", line 562, in connect
+    self.read_header()
+  File "/opt/ros/melodic/lib/python2.7/dist-packages/rospy/impl/tcpros_base.py", line 657, in read_header
+    self._validate_header(read_ros_handshake_header(sock, self.read_buff, self.protocol.buff_size))
+AttributeError: 'NoneType' object has no attribute 'buff_size'
+
+2021-06-23 01:13:30,638 INFO <PID 32251:MainProcess> rospy.internal.rospyinfo(): topic[/rosout] adding connection to [/rosout], count 0
+2021-06-23 01:13:44,098 INFO <PID 32251:MainProcess> rospy.core.signal_shutdown(): signal_shutdown [signal-2]
+2021-06-23 01:13:44,099 INFO <PID 32251:MainProcess> root.shutdown(): Node is shutting down ...
+2021-06-23 01:13:44,101 INFO <PID 32251:MainProcess> rospy.internal.rospyinfo(): topic[/rosout] removing connection to /rosout
+2021-06-23 01:13:44,102 INFO <PID 32251:MainProcess> rospy.internal.rospyinfo(): topic[/camera/color/image_raw] removing connection to http://phm-rory:43643/
+2021-06-23 01:13:44,102 INFO <PID 32251:MainProcess> rospy.impl.masterslave.ROSHandler._shutdown(): signal-2
+2021-06-23 01:13:44,701 INFO <PID 32251:MainProcess> root.terminate(): LeManchot-dc is shutting down ...
+2021-06-23 01:13:44,736 INFO <PID 32251:MainProcess> root.end_recording(): Collector visible_camera is terminated.
+2021-06-23 01:13:44,740 INFO <PID 32251:MainProcess> root.main_func(): System is terminated!
+2021-06-23 01:13:45,321 INFO <PID 32251:MainProcess> rospy.core.signal_shutdown(): signal_shutdown [atexit]
