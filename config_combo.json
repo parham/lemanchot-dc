@@ -1,0 +1,49 @@
+{
+    "root_dir": "recordings",
+    "buffer_size": 50,
+    "time_lack" : 160,
+    "collectors": [
+        {
+            "name" : "visible_camera",
+            "data_folder": "visible",
+            "data_topic": "/phm/depth_camera/color/image_raw",
+            "enable_recorder": true,
+            "queue_size" : 50,
+            "info_topic": "/phm/depth_camera/color/camera_info"
+        },
+        {
+            "name" : "depth_camera",
+            "data_folder": "depth",
+            "data_topic": "/phm/depth_camera/aligned_depth_to_color/image_raw",
+            "enable_recorder": true,
+            "queue_size" : 50,
+            "info_topic": "/phm/depth_camera/depth/camera_info"
+        },
+        {
+            "name" : "thermal_camera",
+            "data_folder": "thermal",
+            "data_topic": "/phm/thermal_camera/image",
+            "enable_recorder": true,
+            "queue_size" : 50,
+            "config_node" : "/phm/phm_flir_spinnaker"
+        },
+        {
+            "name" : "gyro_imu",
+            "data_folder": "gyro_imu",
+            "data_topic" : "/phm/depth_camera/gyro/sample",
+            "enable_recorder": true,
+            "queue_size" : 10,
+            "flush_size" : 7,
+            "info_topic": "/phm/depth_camera/gyro/imu_info"
+        },
+        {
+            "name" : "accel_imu",
+            "data_folder": "accel_imu",
+            "data_topic": "/phm/depth_camera/accel/sample",
+            "enable_recorder": true,
+            "queue_size" : 10,
+            "flush_size" : 7,
+            "info_topic": "/phm/depth_camera/accel/imu_info"
+        }
+    ]
+}

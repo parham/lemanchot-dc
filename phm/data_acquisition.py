@@ -7,13 +7,17 @@ import os
 import logging
 import json
 import imageio
+import rospy
+import csv
+
 from PIL import Image
 from pathlib import Path
 from typing import Any
-import rospy
 
+from realsense2_camera.msg import IMUInfo
+
+import dynamic_reconfigure.client as dclient
 import sensor_msgs.msg as msg
-# from sensor_msgs.msg import Image, CameraInfo
 import message_filters
 import threading
 import queue
@@ -23,34 +27,33 @@ default_config_file = 'config.json'
 timestamp_label = 'timestamp'
 data_label = 'data'
 
-class Recorder (phm.Configurable) :
-    def __init__(self, root_dir, main_topic_classtype, config : dict) -> None:
-        super().__init__(config=config)
+class Recorder (phm.Configurable, threading.Thread) :
+    def __init__(self, root_dir, name, config : dict) -> None:
+        threading.Thread.__init__(self, name=f'{name}_main_topic', daemon=True)
+        phm.Configurable.__init__(self, config=config)
         # Initialize the acquisition folder
         if not hasattr(self, 'data_folder'):
             raise Exception(f'the folder for {self.name} is not defined!')
         self.data_folder = os.path.join(root_dir, self.data_folder)
         Path(self.data_folder).mkdir(parents=True,exist_ok=True)
-        # The class type of main topic
-        self.main_classtype = main_topic_classtype
-        self.topic_subscriber = None
+
         self.record_thread = None
         self.record_queue = queue.Queue(maxsize=self.queue_size)
         self.sys_alive = True
 
-    def begin_recording(self):
-        # Subscribe to the topic
-        if self.topic_subscriber is not None:
-            return
-        self.topic_subscriber = message_filters.Subscriber(self.data_topic, self.main_classtype)
-        self.sys_alive = True
-        self.record_thread = threading.Thread(target=self._record_loop, name=f'{self.name}_main_topic', daemon=True)
-        self.record_thread.start()
-        logging.info(f'Collector {self.name} is initiated and started to run ...')
+        self.__flag = threading.Event() # The flag used to pause the thread
+        self.__flag.set() # Set to True
+        self.__running = threading.Event() # Used to stop the thread identification
+        self.__running.set() # Set running to True
 
-    def _record_loop(self):
+    def start(self):
+        threading.Thread.start(self)
+        self.begin_recording()
+
+    def run(self):
         try:
-            while self.sys_alive:
+            while self.__running.isSet():
+                self.__flag.wait()
                 data = self.record_queue.get(timeout=300)
                 self._record_process(data[timestamp_label], data[data_label])
         except queue.Empty as ex:
@@ -59,22 +62,35 @@ class Recorder (phm.Configurable) :
             # Unregister the subscriber
             self.topic_subscriber.unregister()
 
+    def begin_recording(self):
+        self.sys_alive = True
+        logging.info(f'Collector {self.name} is initiated and started to run ...')
+
+    def pause(self):
+        self.__flag.clear() # Set to False to block the thread
+        logging.info(f'{self.name} collector is paused!')
+
+    def resume(self):
+        self.__flag.set() # Set to True, let the thread stop blocking
+        logging.info(f'{self.name} collector is resumed!')
+
+    def stop(self):
+        self.end_recording()
+        self.__flag.set() # Resume the thread from the suspended state, if it is already suspended
+        self.__running.clear() # Set to False
+        logging.info(f'Collector {self.name} is terminated.')
+
     def _record_process(self, timestamp, data):
         pass
 
     def record(self, data : dict):
-        if self.enable_recorder:
+        if self.enable_recorder and self.sys_alive:
             if self.record_queue.full():
                 self.record_queue.get()
             self.record_queue.put_nowait(data)
 
     def end_recording(self):
-        try:
-            self.sys_alive = False
-            self.record_thread.join(timeout=2)
-            logging.info(f'Collector {self.name} is terminated.')
-        except:
-            logging.error(f'{self.name} thread is failed to terminate!')
+        pass
 
     def __str__(self) -> str:
         return f'{self.name} is handling the topic {self.data_topic}'
@@ -82,9 +98,74 @@ class Recorder (phm.Configurable) :
     def __repr__(self) -> str:
         return self.__str__()
 
-class VisibleRecorder (Recorder):
-    def __init__(self, root_dir, config: dict) -> None:
-        super().__init__(root_dir, msg.Image, config)
+class DataRecorder (Recorder):
+    def __init__(self, root_dir, name, main_topic_classtype, config : dict) -> None:
+        super().__init__(root_dir, name, config)
+        # The class type of main topic
+        self.main_classtype = main_topic_classtype
+        self.topic_subscriber = None
+
+    def begin_recording(self):
+        super().begin_recording()
+        # Subscribe to the topic
+        if self.topic_subscriber is not None:
+            return
+        self.topic_subscriber = message_filters.Subscriber(self.data_topic, self.main_classtype)
+
+class RealSenseIMURecorder (DataRecorder):
+    def __init__(self, root_dir, name, config: dict) -> None:
+        super().__init__(root_dir, name, msg.Imu, config)
+        self.filename = None
+        self.records = list()
+
+    def record_camera_info(self, *args: Any, **kwargs: Any) :
+        # Collect a packet from camera info topic
+        cinfo = rospy.wait_for_message(self.info_topic, IMUInfo, timeout=10)
+        # Extract the camera calibration fields
+        obj = dict()
+        obj['bias_variances'] = cinfo.bias_variances
+        obj['data'] = cinfo.data
+        obj['noise_variances'] = cinfo.noise_variances
+        # Write the info
+        with open(os.path.join(self.data_folder, f'{self.name}_info.json'), "w") as outfile: 
+            json.dump(obj, outfile, indent = 4)
+        
+    def begin_recording(self):
+        super().begin_recording()
+        # Collect Camera Information
+        if hasattr(self, 'info_topic'):
+            thobj = threading.Thread(target=self.record_camera_info, name=f'{self.name}_info')
+            thobj.start()
+        timestamp = int(time.time() * 1000.0)
+        self.filename = os.path.join(self.data_folder, f'{self.name}_{timestamp}.csv')
+
+    def _record_process(self, timestamp, data):
+        if len(self.records) >= self.flush_size:
+            fexist = os.path.exists(self.filename)
+            ref = self.records[0]
+            with open(self.filename, 'a' if fexist else 'w', newline='') as outcsv:
+                writer = csv.DictWriter(outcsv, delimiter =';', fieldnames = list(ref.keys()))
+                if not fexist:
+                    writer.writeheader()
+                writer.writerows(self.records)
+                self.records = list()
+        else:
+            tmp = dict()
+            tmp['angular_velocity'] = [data.angular_velocity.x, data.angular_velocity.y, data.angular_velocity.z]
+            tmp['angular_velocity_covariance'] = data.angular_velocity_covariance
+            tmp['linear_acceleration'] = [data.linear_acceleration.x, data.linear_acceleration.y, data.linear_acceleration.z]
+            tmp['linear_acceleration_covariance'] = data.linear_acceleration_covariance
+            tmp['orientation_w'] = data.orientation.w
+            tmp['orientation_x'] = data.orientation.x
+            tmp['orientation_y'] = data.orientation.y
+            tmp['orientation_z'] = data.orientation.z
+            tmp['orientation_covariance'] = data.orientation_covariance
+            tmp[timestamp_label] = timestamp
+            self.records.append(tmp)
+
+class VisibleRecorder (DataRecorder):
+    def __init__(self, root_dir, name, config: dict) -> None:
+        super().__init__(root_dir, name, msg.Image, config)
     
     def record_camera_info(self, *args: Any, **kwargs: Any) :
         # Collect a packet from camera info topic
@@ -107,23 +188,49 @@ class VisibleRecorder (Recorder):
     def begin_recording(self):
         super().begin_recording()
         # Collect Camera Information
-        thobj = threading.Thread(target=self.record_camera_info, name=f'{self.name}_camera_info')
-        thobj.start()
+        if hasattr(self, 'info_topic'):
+            thobj = threading.Thread(target=self.record_camera_info, name=f'{self.name}_camera_info')
+            thobj.start()
     
     def _record_process(self, timestamp, data):
         filename = os.path.join(self.data_folder, f'visible_{timestamp}.png')
         img = np.frombuffer(data.data, dtype=np.uint8).reshape(data.height, data.width, -1)
+        # TODO: Change the following lines with : imageio.imwrite(filename, img.astype(np.uint8))
         vimg = Image.fromarray(img)
         vimg.save(filename)
         
 class DepthRecorder (VisibleRecorder):
-    def __init__(self, root_dir, config: dict) -> None:
-        super().__init__(root_dir, config)
+    def __init__(self, root_dir, name, config: dict) -> None:
+        super().__init__(root_dir, name, config)
 
     def _record_process(self, timestamp, data):
         filename = os.path.join(self.data_folder, f'depth_{timestamp}.png')
         img = np.frombuffer(data.data, dtype=np.uint16).reshape(data.height, data.width, -1)
         imageio.imwrite(filename, img.astype(np.uint16))
+
+class ThermalRecorder (VisibleRecorder):
+    def __init__(self, root_dir, name, config: dict) -> None:
+        super().__init__(root_dir, name, config)
+        self.pixel_format = None
+        self.image_mode = None
+
+    def begin_recording(self):
+        super().begin_recording()
+        dclient.Client(self.config_node, timeout=10, config_callback=self.config_callback)
+    
+    def config_callback(self, config):
+        self.pixel_format = config['frame_pixel_format']
+        self.image_mode = config['image_mode']
+
+    def _record_process(self, timestamp, data):
+        filename = os.path.join(self.data_folder, f'thermal_{timestamp}.png')
+        if self.pixel_format is not None and self.image_mode == 'Thermal':
+            if self.pixel_format == 'Mono8':
+                img = np.frombuffer(data.data, dtype=np.uint8).reshape(data.height, data.width, -1)
+                imageio.imwrite(filename, img.astype(np.uint8))
+            if self.pixel_format == 'Mono16':
+                img = np.frombuffer(data.data, dtype=np.uint16).reshape(data.height, data.width, -1)
+                imageio.imwrite(filename, img.astype(np.uint16))
 
 class LeManchotDC:
 
@@ -179,17 +286,24 @@ class LeManchotDC:
             # Selecting proper collectors
             is_implemented = False
             if name == 'visible_camera':
-                vobj = VisibleRecorder(self.root_dir,obj) 
+                vobj = VisibleRecorder(self.root_dir, name, obj) 
                 is_implemented = True
             elif name == 'depth_camera':
-                vobj = DepthRecorder(self.root_dir,obj) 
+                vobj = DepthRecorder(self.root_dir, name, obj) 
                 is_implemented = True
-            elif name == 'sensor_imu':
+            elif name == 'thermal_camera':
+                vobj = ThermalRecorder(self.root_dir, name, obj)
+                is_implemented = True
+            elif name == 'gyro_imu':
+                vobj = RealSenseIMURecorder(self.root_dir, name, obj)
+                is_implemented = True
+            elif name == 'accel_imu':
+                vobj = RealSenseIMURecorder(self.root_dir, name, obj)
                 is_implemented = True
             
             if vobj is not None:
                 self.collectors[name] = vobj
-                vobj.begin_recording()
+                vobj.start()
                 self.subscribers.append(vobj.topic_subscriber)
                 self.collectors_name.append(name)
             elif not is_implemented:
@@ -205,7 +319,18 @@ class LeManchotDC:
                 })
             self.__last_time = timestamp
 
-    def terminate(self):
+    def pause(self):
+        logging.info('LeManchot-dc is paused ...')
+        for obj in self.collectors.values():
+            obj.pause()
+    
+    def resume(self):
+        logging.info('LeManchot-dc is resumed ...')
+        for obj in self.collectors.values():
+            obj.resume()
+
+    def stop(self):
         logging.info('LeManchot-dc is shutting down ...')
         for obj in self.collectors.values():
-            obj.end_recording()
+            obj.stop()
+

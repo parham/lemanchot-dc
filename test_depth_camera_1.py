@@ -10,6 +10,8 @@ from std_msgs.msg import String
 from sensor_msgs.msg import Image, CameraInfo
 import message_filters
 
+import dynamic_reconfigure.client as dclient
+
 def callback_visible(data):
     try:
         img = np.frombuffer(data.data, dtype=np.uint8).reshape(
@@ -32,48 +34,45 @@ def callback_depth(data):
     cv2.imshow("Depth Window", img)
     cv2.waitKey(10)
 
-def callback_sync(*data):
-    depth = data[0]
-    viz = data[1]
+def callback_thermal(data):
     try:
-        vimg = np.frombuffer(viz.data, dtype=np.uint8).reshape(viz.height, viz.width, -1)
-        dimg = np.frombuffer(depth.data, dtype=np.uint16).reshape(depth.height, depth.width, -1)
+        img = np.frombuffer(data.data, dtype=np.uint8).reshape(
+            data.height, data.width, -1)
     except Exception as ex:
         print(ex)
 
-    cv2.imshow("Visible Window", vimg)
-    cv2.imshow("Depth Window", dimg)
+    cv2.imshow("Depth Window", img)
     cv2.waitKey(10)
 
 def shutdown():
     rospy.loginfo('Node is shutting down ...')
     cv2.destroyAllWindows()
 
+def callback(config):
+    # rospy.loginfo("Config set to {int_param}, {double_param}, {str_param}, {bool_param}, {size}".format(**config))
+    print(config)
+
 def main(args):
     # print('Node Test is being started ...')
     logging.info('Node Test is being started ...')
     rospy.init_node('image_converter', anonymous=True)
     rospy.on_shutdown(shutdown)
+    dclient.Client('/phm/phm_flir_spinnaker', timeout=30, config_callback=callback)
 
+    thermal_sub = rospy.Subscriber(
+            "/phm/thermal_camera/image", Image, callback_thermal, queue_size=10)
     # depth_sub = rospy.Subscriber(
-    #         "/camera/aligned_depth_to_color/image_raw", Image, callback_depth, queue_size=10)
+    #         "/phm/depth_camera/aligned_depth_to_color/image_raw", Image, callback_depth, queue_size=10)
     # vis_sub = rospy.Subscriber(
-    #         "/camera/color/image_raw", Image, callback_visible, queue_size=10)
+    #         "/phm/depth_camera/color/image_raw", Image, callback_visible, queue_size=10)
 
-    cinfo = rospy.wait_for_message('/camera/color/camera_info', CameraInfo, timeout=10)
-
-    depth_sub = message_filters.Subscriber("/camera/aligned_depth_to_color/image_raw", Image)
-    vis_sub = message_filters.Subscriber("/camera/color/image_raw", Image)
-
-    ts = message_filters.TimeSynchronizer([depth_sub, vis_sub], 10)
-    ts.registerCallback(callback_sync)
 
     try:
         rospy.spin()
     except KeyboardInterrupt:
         print("Shutting down")
-    # cv2.destroyAllWindows()
-
+    
+    cv2.destroyAllWindows()
 
 
 if __name__ == '__main__':

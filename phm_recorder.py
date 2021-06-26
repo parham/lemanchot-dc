@@ -41,13 +41,19 @@ def main_func(argv):
         rospy.init_node('lemanchot-dc', argv=argv, anonymous=True)
         rospy.on_shutdown(shutdown)
 
-        dcobj = LeManchotDC.get_instance(config_file='./config.json')
+        # dcobj = LeManchotDC.get_instance(config_file='./config.json')
+        dcobj = LeManchotDC.get_instance(config_file='./config_combo.json')
 
-        ts = message_filters.TimeSynchronizer(dcobj.subscribers, dcobj.buffer_size)
+        ts = message_filters.ApproximateTimeSynchronizer(dcobj.subscribers, dcobj.buffer_size, 10)
         ts.registerCallback(callback_sync, dcobj)
 
-        rospy.spin()
-        dcobj.terminate()
+        status = True
+        while not rospy.is_shutdown():
+            if not status:
+                break
+            
+        # rospy.spin()
+        dcobj.stop()
         logging.info('System is terminated!')
     except rospy.ROSInitException as exp:
         logging.error('lemachot-dc system is failed!')
