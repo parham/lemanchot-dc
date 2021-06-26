@@ -1,3 +1,4 @@
 
 pillow
 imageio
+console-menu

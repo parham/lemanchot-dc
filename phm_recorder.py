@@ -51,8 +51,7 @@ def main_func(argv):
         while not rospy.is_shutdown():
             if not status:
                 break
-            
-        # rospy.spin()
+
         dcobj.stop()
         logging.info('System is terminated!')
     except rospy.ROSInitException as exp:
