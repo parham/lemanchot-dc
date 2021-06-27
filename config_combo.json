@@ -8,7 +8,7 @@
             "data_folder": "visible",
             "data_topic": "/phm/depth_camera/color/image_raw",
             "enable_recorder": true,
-            "queue_size" : 50,
+            "queue_size" : 20,
             "info_topic": "/phm/depth_camera/color/camera_info"
         },
         {
@@ -16,7 +16,7 @@
             "data_folder": "depth",
             "data_topic": "/phm/depth_camera/aligned_depth_to_color/image_raw",
             "enable_recorder": true,
-            "queue_size" : 50,
+            "queue_size" : 20,
             "info_topic": "/phm/depth_camera/depth/camera_info"
         },
         {
@@ -24,7 +24,7 @@
             "data_folder": "thermal",
             "data_topic": "/phm/thermal_camera/image",
             "enable_recorder": true,
-            "queue_size" : 50,
+            "queue_size" : 20,
             "config_node" : "/phm/phm_flir_spinnaker"
         },
         {

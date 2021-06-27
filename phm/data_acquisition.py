@@ -42,7 +42,7 @@ class Recorder (phm.Configurable, threading.Thread) :
         self.sys_alive = True
 
         self.__flag = threading.Event() # The flag used to pause the thread
-        self.__flag.set() # Set to True
+        self.__flag.clear() # Set to True
         self.__running = threading.Event() # Used to stop the thread identification
         self.__running.set() # Set running to True
 
@@ -318,6 +318,19 @@ class LeManchotDC:
                     data_label : value
                 })
             self.__last_time = timestamp
+
+    def callback_sync(*arg):
+        dcobj = arg[-1]
+        data = arg[:-1]
+        packet = dict()
+        for index in range(len(data)) :
+            name = dcobj.collectors_name[index]
+            packet[name] = data[index]
+        dcobj.record(packet)
+
+    def start(self):
+        ts = message_filters.ApproximateTimeSynchronizer(self.subscribers, self.buffer_size, 10)
+        ts.registerCallback(self.callback_sync, self)
 
     def pause(self):
         logging.info('LeManchot-dc is paused ...')

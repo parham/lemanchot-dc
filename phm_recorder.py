@@ -11,13 +11,15 @@
 """
 
 import logging
-from phm.data_acquisition import LeManchotDC
+
 import sys
 import rospy
 import numpy as np
+import message_filters
+
 from std_msgs.msg import String
 from sensor_msgs.msg import Image
-import message_filters
+from phm import LeManchotDC
 from multiprocessing import cpu_count
 
 def callback_sync(*arg):
@@ -47,10 +49,7 @@ def main_func(argv):
         ts = message_filters.ApproximateTimeSynchronizer(dcobj.subscribers, dcobj.buffer_size, 10)
         ts.registerCallback(callback_sync, dcobj)
 
-        status = True
-        while not rospy.is_shutdown():
-            if not status:
-                break
+        rospy.spin()
 
         dcobj.stop()
         logging.info('System is terminated!')

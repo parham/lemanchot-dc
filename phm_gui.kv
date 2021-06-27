@@ -1,0 +1,148 @@
+
+#:kivy 2.0
+
+#:import Window kivy.core.window.Window
+#:import IconLeftWidget kivymd.uix.list.IconLeftWidget
+#:import images_path kivymd.images_path
+#:import Snackbar kivymd.uix.snackbar.Snackbar
+#:import Carousel kivy.uix.carousel.Carousel
+#:import colors kivymd.color_definitions.colors
+#:import get_color_from_hex kivy.utils.get_color_from_hex
+#:import ScreenManager kivy.uix.screenmanager.ScreenManager 
+#:import FadeTransition kivy.uix.screenmanager.FadeTransition
+#:import MDTapTargetView kivymd.uix.taptargetview.MDTapTargetView
+
+
+<CameraViewer@Image>:
+    canvas.before:
+        Color:
+            rgb: (0.03843, 0.04313, 0.05686)
+        Rectangle:
+            size: self.width + 20, self.height + 20
+            pos: self.x - 10, self.y - 10
+    resolution: (800, 600)
+    allow_stretch: True
+    keep_ratio: False
+    size_hint: 1.0, 0.85
+    pos_hint: {'top': 1.0}
+    md_bg_color: app.theme_cls.primary_light
+    # source: no_signal_fpath
+
+<LeManchotFrame>:
+    name: 'LeManchot-DC'
+    color_text: get_color_from_hex(colors['Green']['700'])
+    color_cpu_chip: get_color_from_hex(colors['Red']['700'])
+    color_disk_chip: get_color_from_hex(colors['Blue']['700'])
+    color_action_button : get_color_from_hex(colors['Blue']['600'])
+    MDFloatLayout:
+        Carousel:
+            id: phm_switch_camera_panel
+            direction: 'right'
+            size_hint: 1.0, 1.0
+            loop: True
+            MDFloatLayout:
+                CameraViewer:
+                    id: phm_camera_visible
+                    size_hint: 1.0, 1.0
+                BubbleButton:
+                    text: 'Visible View'
+                    pos_hint: {'top': 1.0, 'center_x': 0.5}
+                    size_hint: 0.1, 0.1
+            MDFloatLayout:
+                CameraViewer:
+                    id: phm_camera_depth
+                    size_hint: 1.0, 1.0
+                BubbleButton:
+                    text: 'Depth View'
+                    pos_hint: {'top': 1.0, 'center_x': 0.5}
+                    size_hint: 0.1, 0.1
+            MDFloatLayout:
+                CameraViewer:
+                    id: phm_camera_thermal
+                    size_hint: 1.0, 1.0
+                BubbleButton:
+                    text: 'Thermal View'
+                    pos_hint: {'top': 1.0, 'center_x': 0.5}
+                    size_hint: 0.1, 0.1
+        MDStackLayout:
+            spacing: 5, 5
+            padding: 5, 50
+            orientation: 'tb-lr'
+            size: self.parent.size
+            MDCard:
+                orientation: 'vertical'
+                focus_behavior: True
+                pos_hint: {'right' : 0.95, 'center_y' : 0.48}
+                orientation: 'vertical'
+                size_hint: 0.2, None
+                padding: 5, 5, 5, 5
+                radius:[20,]
+                border_radius: 3
+                adaptive_height: True
+                MDLabel:
+                    id: phm_cpu_indicator
+                    text: '100%'
+                    font_style: 'Caption'
+                    font_size: '32sp'
+                    bold: True
+                    theme_text_color: 'Custom'
+                    text_color: root.color_text
+                    # size_hint: None, 0.5
+                    halign: 'center'
+                    valign: 'center'
+                MDChip:
+                    text: 'CPU'
+                    icon: 'cog' # check-circle
+                    halign: 'center'
+                    color: root.color_cpu_chip
+                    pos_hint: {'center_x' : 0.5}
+                    size_hint_x: 0.95
+                    spacing : 15
+            MDCard:
+                orientation: 'vertical'
+                focus_behavior: True
+                pos_hint: {'right' : 0.95, 'center_y' : 0.48}
+                orientation: 'vertical'
+                size_hint: 0.2, None
+                padding: 5, 5, 5, 5
+                radius:[20,]
+                border_radius: 3
+                adaptive_height: True
+                MDLabel:
+                    id: phm_storage_indicator
+                    text: app.test # '200 GB'
+                    font_style: 'Caption'
+                    font_size: '32sp'
+                    bold: True
+                    theme_text_color: 'Custom'
+                    text_color: root.color_text
+                    # size_hint: None, 0.5
+                    halign: 'center'
+                    valign: 'center'
+                MDChip:
+                    text: 'DISK'
+                    icon: 'harddisk' # check-circle
+                    halign: 'center'
+                    color: root.color_disk_chip
+                    pos_hint: {'center_x' : 0.5}
+                    size_hint_x: 0.95
+                    spacing : 15
+
+        MDBoxLayout:
+            pos_hint: {'right' : 0.6, 'top': 0.15}
+            adaptive_size: True
+            spacing : 10
+            MDFloatingActionButton:
+                icon: "play"
+                md_bg_color: root.color_action_button
+                # pos_hint: {'right' : 0.45, 'top': 0.15}
+
+            MDFloatingActionButton:
+                icon: "pause"
+                md_bg_color: root.color_action_button
+                # pos_hint: {'right' : 0.55, 'top': 0.15}
+
+            MDFloatingActionButton:
+                icon: "sync"
+                md_bg_color: root.color_action_button
+                # pos_hint: {'right' : 0.55, 'top': 0.15}

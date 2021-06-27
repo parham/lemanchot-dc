@@ -14,16 +14,15 @@ from consolemenu import ConsoleMenu, SelectionMenu
 from consolemenu.items import FunctionItem, SubmenuItem, CommandItem
 
 import logging
-from phm.data_acquisition import LeManchotDC
 import sys
 import rospy
 import numpy as np
-from std_msgs.msg import String
-from sensor_msgs.msg import Image
 import message_filters
+
+from std_msgs.msg import String
+from phm import LeManchotDC
+from sensor_msgs.msg import Image
 from multiprocessing import cpu_count
-
-
 
 def callback_sync(*arg):
     dcobj = arg[-1]
@@ -46,27 +45,31 @@ def main_func(argv):
         rospy.init_node('lemanchot-dc', argv=argv, anonymous=True)
         rospy.on_shutdown(shutdown)
 
-        # dcobj = LeManchotDC.get_instance(config_file='./config.json')
         dcobj = LeManchotDC.get_instance(config_file='./config_combo.json')
+        # dcobj = LeManchotDC.get_instance(config_file='./config.json')
 
-        ts = message_filters.ApproximateTimeSynchronizer(dcobj.subscribers, dcobj.buffer_size, 10)
-        ts.registerCallback(callback_sync, dcobj)
+        # ts = message_filters.ApproximateTimeSynchronizer(dcobj.subscribers, dcobj.buffer_size, 10)
+        # ts.registerCallback(callback_sync, dcobj)
 
         # Create the menu
         title = 'LeManchot-DC'
-        subtitle = ''' 
-            LeManchot is a multimodal data platform including data acquisition and data transmission components.
-            Developed by Parham Nooralishahi - parham.nooralishahi.1@ulaval.ca
-            Supervisor : Professor Xavier Maldague
-            @2021
+        subtitle = '''
+        =============================================================
+        == LeManchot-DC System : Multi-Modal Data Acquisition      ==
+        == Laval University                                        ==
+        == @Supervisor : Professor Xavier Maldague                 ==
+        == @Researcher : Parham Nooralishahi                       ==
+        == @year @ 2021                                            ==
+        =============================================================
         '''
         prologue = 'You can select the following options for controling DC process'
         epilogue = '@ULAVAL'
 
         menu = ConsoleMenu(title, subtitle=subtitle, prologue_text=prologue, epilogue_text=epilogue)
         # menu.clear_screen()
+        menu.append_item(FunctionItem("Start recording", dcobj.start, menu=menu))
+        menu.append_item(FunctionItem("Start/Resume recording", dcobj.resume, menu=menu))
         menu.append_item(FunctionItem("Pause recording", dcobj.pause, menu=menu))
-        menu.append_item(FunctionItem("Resume recording", dcobj.resume, menu=menu))
         menu.append_item(FunctionItem("Stop recording", dcobj.stop, menu=menu))
         # Finally, we call show to show the menu and allow the user to interact
         menu.show()
