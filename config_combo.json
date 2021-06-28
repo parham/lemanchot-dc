@@ -9,7 +9,7 @@
             "data_topic": "/phm/depth_camera/color/image_raw",
             "enable_recorder": true,
             "queue_size" : 20,
-            "info_topic": "/phm/depth_camera/color/camera_info"
+            "info_topic" : "/phm/depth_camera/color/camera_info"
         },
         {
             "name" : "depth_camera",
@@ -25,7 +25,8 @@
             "data_topic": "/phm/thermal_camera/image",
             "enable_recorder": true,
             "queue_size" : 20,
-            "config_node" : "/phm/phm_flir_spinnaker"
+            "config_node" : "/phm/phm_flir_spinnaker",
+            "flip" : true
         },
         {
             "name" : "gyro_imu",

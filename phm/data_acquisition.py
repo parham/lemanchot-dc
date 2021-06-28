@@ -1,6 +1,6 @@
 
-import phm
 
+import cv2
 import numpy as np
 import time
 import os
@@ -10,6 +10,7 @@ import imageio
 import rospy
 import csv
 
+from phm import Configurable, load_config
 from PIL import Image
 from pathlib import Path
 from typing import Any
@@ -27,10 +28,10 @@ default_config_file = 'config.json'
 timestamp_label = 'timestamp'
 data_label = 'data'
 
-class Recorder (phm.Configurable, threading.Thread) :
+class Recorder (Configurable, threading.Thread) :
     def __init__(self, root_dir, name, config : dict) -> None:
         threading.Thread.__init__(self, name=f'{name}_main_topic', daemon=True)
-        phm.Configurable.__init__(self, config=config)
+        Configurable.__init__(self, config=config)
         # Initialize the acquisition folder
         if not hasattr(self, 'data_folder'):
             raise Exception(f'the folder for {self.name} is not defined!')
@@ -225,12 +226,16 @@ class ThermalRecorder (VisibleRecorder):
     def _record_process(self, timestamp, data):
         filename = os.path.join(self.data_folder, f'thermal_{timestamp}.png')
         if self.pixel_format is not None and self.image_mode == 'Thermal':
+            img = None
             if self.pixel_format == 'Mono8':
                 img = np.frombuffer(data.data, dtype=np.uint8).reshape(data.height, data.width, -1)
-                imageio.imwrite(filename, img.astype(np.uint8))
             if self.pixel_format == 'Mono16':
                 img = np.frombuffer(data.data, dtype=np.uint16).reshape(data.height, data.width, -1)
-                imageio.imwrite(filename, img.astype(np.uint16))
+                # imageio.imwrite(filename, img.astype(np.uint16))
+            if img is not None:
+                if self.flip:
+                    img = cv2.flip(img, -1)
+                imageio.imwrite(filename, img)
 
 class LeManchotDC:
 
@@ -260,7 +265,7 @@ class LeManchotDC:
     
     def _initialize(self, config_file = None):
         # Load the configuration
-        self.config = phm.load_config(config_file)
+        self.config = load_config(config_file)
         # Initialize the root directory
         self.root_dir = self.config['root_dir'] if 'root_dir' in self.config else os.path.join(os.getcwd(), 'data')
         Path(self.root_dir).mkdir(parents=True,exist_ok=True)
@@ -319,7 +324,7 @@ class LeManchotDC:
                 })
             self.__last_time = timestamp
 
-    def callback_sync(*arg):
+    def callback_sync(self,*arg):
         dcobj = arg[-1]
         data = arg[:-1]
         packet = dict()

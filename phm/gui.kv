@@ -1,4 +1,3 @@
-
 #:kivy 2.0
 
 #:import Window kivy.core.window.Window
@@ -26,7 +25,6 @@
     size_hint: 1.0, 0.85
     pos_hint: {'top': 1.0}
     md_bg_color: app.theme_cls.primary_light
-    # source: no_signal_fpath
 
 <LeManchotFrame>:
     name: 'LeManchot-DC'
@@ -35,35 +33,13 @@
     color_disk_chip: get_color_from_hex(colors['Blue']['700'])
     color_action_button : get_color_from_hex(colors['Blue']['600'])
     MDFloatLayout:
-        Carousel:
-            id: phm_switch_camera_panel
-            direction: 'right'
+        CameraViewer:
+            id: phm_camera_main
             size_hint: 1.0, 1.0
-            loop: True
-            MDFloatLayout:
-                CameraViewer:
-                    id: phm_camera_visible
-                    size_hint: 1.0, 1.0
-                BubbleButton:
-                    text: 'Visible View'
-                    pos_hint: {'top': 1.0, 'center_x': 0.5}
-                    size_hint: 0.1, 0.1
-            MDFloatLayout:
-                CameraViewer:
-                    id: phm_camera_depth
-                    size_hint: 1.0, 1.0
-                BubbleButton:
-                    text: 'Depth View'
-                    pos_hint: {'top': 1.0, 'center_x': 0.5}
-                    size_hint: 0.1, 0.1
-            MDFloatLayout:
-                CameraViewer:
-                    id: phm_camera_thermal
-                    size_hint: 1.0, 1.0
-                BubbleButton:
-                    text: 'Thermal View'
-                    pos_hint: {'top': 1.0, 'center_x': 0.5}
-                    size_hint: 0.1, 0.1
+        CameraViewer:
+            id: phm_camera_secondary
+            size_hint: 0.3, 0.2
+            pos_hint: {'top': 0.25, 'right': 0.95}
         MDStackLayout:
             spacing: 5, 5
             padding: 5, 50
@@ -110,7 +86,7 @@
                 adaptive_height: True
                 MDLabel:
                     id: phm_storage_indicator
-                    text: app.test # '200 GB'
+                    text: '200 GB'
                     font_style: 'Caption'
                     font_size: '32sp'
                     bold: True
@@ -135,14 +111,17 @@
             MDFloatingActionButton:
                 icon: "play"
                 md_bg_color: root.color_action_button
+                on_press: root.resume_dc()
                 # pos_hint: {'right' : 0.45, 'top': 0.15}
 
             MDFloatingActionButton:
                 icon: "pause"
                 md_bg_color: root.color_action_button
+                on_press: root.pause_dc()
                 # pos_hint: {'right' : 0.55, 'top': 0.15}
 
             MDFloatingActionButton:
                 icon: "sync"
                 md_bg_color: root.color_action_button
+                on_press: root.switch_view()
                 # pos_hint: {'right' : 0.55, 'top': 0.15}

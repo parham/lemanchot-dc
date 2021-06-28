@@ -6,6 +6,7 @@ kivy
 kivymd
 imutils
 flask
+psutil
 
 # ros melodic
 # opencv with nonfree components

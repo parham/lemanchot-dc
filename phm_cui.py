@@ -78,6 +78,7 @@ def main_func(argv):
     except rospy.ROSInitException as exp:
         logging.error('lemachot-dc system is failed!')
         logging.exception(exp)
+        print(exp)
 
 
 if __name__ == '__main__':

@@ -11,35 +11,47 @@
 """
 
 import multiprocessing
+from multiprocessing import process
+import queue
 import time
 import logging
 
+import cv2
+import numpy as np
 import rospy
 import message_filters
+import sensor_msgs.msg as msg
+
+config_file = './config_combo.json'
 
 from phm import LeManchotDC
+from phm.gui import run_gui
 
-def callback_sync(*arg):
-    dcobj = arg[-1]
-    data = arg[:-1]
-    packet = dict()
-    for index in range(len(data)) :
-        name = dcobj.collectors_name[index]
-        packet[name] = data[index]
-    dcobj.record(packet)
+def shutdown():
+    logging.info('ros node is terminating!')
 
-def process_dc():
+def process_dc(record_signal, terminate_signal):
     try:
         logging.info('System is started!')
         logging.info(f'starting computations on {multiprocessing.cpu_count()} cores')
-        rospy.init_node('lemanchot-dc', anonymous=True)
-        # rospy.on_shutdown(shutdown)
-        dcobj = LeManchotDC.get_instance(config_file='./config_combo.json')
+        rospy.init_node('lemanchot_dc')
+        rospy.on_shutdown(shutdown)
+        dcobj = LeManchotDC.get_instance(config_file=config_file)
+        dcobj.start()
 
-        ts = message_filters.ApproximateTimeSynchronizer(dcobj.subscribers, dcobj.buffer_size, 10)
-        ts.registerCallback(callback_sync, dcobj)
+        while not rospy.is_shutdown():
+            if record_signal.is_set():
+                dcobj.resume()
+            else:
+                dcobj.pause()
+            
+            if terminate_signal.is_set():
+                dcobj.stop()
+                break
+            time.sleep(0.2)
 
-        rospy.spin()
+        rospy.signal_shutdown('lemanchot-dc is shutting down')
+
     except rospy.ROSInitException as exp:
         logging.error('lemachot-dc system is failed!')
         logging.exception(exp)
@@ -47,31 +59,52 @@ def process_dc():
         logging.exception(ex)
         logging.error('lemachot-dc is terminated with an error!')
 
-def process_gui():
-    pass
+
+queue_visible = multiprocessing.Queue(maxsize=20)
+queue_thermal = multiprocessing.Queue(maxsize=20)
+
+def callback_visible(data):
+    if queue_visible.full():
+        queue_visible.get()
+    img = np.frombuffer(data.data, dtype=np.uint8).reshape(data.height, data.width, -1)
+    queue_visible.put(img)
+
+def callback_thermal(data):
+    if queue_thermal.full():
+        queue_thermal.get()
+    img = None
+    if data.encoding == 'mono8' :
+        img = np.frombuffer(data.data, dtype=np.uint8).reshape(data.height, data.width, -1)
+    elif data.encoding == 'mono16' :
+        img = np.frombuffer(data.data, dtype=np.uint16).reshape(data.height, data.width, -1)
+    if img is not None:
+        img = cv2.flip(img, -1)
+        queue_thermal.put(img)
 
 if __name__ == '__main__':
-    play_signal = multiprocessing.Event()
-    terminate_signal = multiprocessing.Event()
+    try:
+        record_signal = multiprocessing.Event()
+        terminate_signal = multiprocessing.Event()
+        #  Start the LeManchot-DC subsystem
+        dc_worker = multiprocessing.Process(
+            name='lemanchot-dc',
+            target=process_dc,
+            args=(record_signal,terminate_signal),
+        )
+        dc_worker.start()
 
+        rospy.init_node('lemanchot_gui')
+        rospy.Subscriber('/phm/depth_camera/color/image_raw', msg.Image, callback=callback_visible)
+        rospy.Subscriber('/phm/thermal_camera/image', msg.Image, callback=callback_thermal)
 
+        run_gui(config_file, queue_visible, queue_thermal, record_signal, terminate_signal) 
 
-    w1 = multiprocessing.Process(
-        name='block',
-        target=wait_for_event,
-        args=(e,),
-    )
-
-    w1.start()
-
-    w2 = multiprocessing.Process(
-        name='nonblock',
-        target=wait_for_event_timeout,
-        args=(e, 2),
-    )
-    w2.start()
-
-    print('main: waiting before calling Event.set()')
-    time.sleep(3)
-    e.set()
-    print('main: event is set')
+    except Exception as ex:
+        logging.info('System is terminating because of an exception!')
+        logging.exception(ex)
+        # print(ex)
+    finally:
+        # dc_worker.terminate()
+        # dc_worker.join(timeout=2)
+        # dc_worker.kill()
+        exit()
