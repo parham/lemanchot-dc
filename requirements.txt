@@ -1,4 +1,5 @@
 
+rospy
 pillow
 imageio
 console-menu
