@@ -22,7 +22,7 @@ echo "======================================================================"
 
 chmod u+x "./run_ros_nodes.sh"
 
-gnome-terminal --tab --title="FLIR NODE" --command="bash -c '; . ./run_ros_nodes.sh ;$SHELL'"
+gnome-terminal --title="FLIR NODE" -- /bin/sh -c ". ./run_ros_nodes.sh ;$SHELL"
 
 # Run the program
 python lemanchot-dc.py

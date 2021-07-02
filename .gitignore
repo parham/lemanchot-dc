@@ -2,3 +2,6 @@
 recordings/*
 logs/*
 phm/__pycache__/*
+build/*
+devel/*
+.catkin_workspace
