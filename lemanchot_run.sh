@@ -22,7 +22,20 @@ echo "======================================================================"
 
 chmod u+x "./run_ros_nodes.sh"
 
-gnome-terminal --title="FLIR NODE" -- /bin/sh -c ". ./run_ros_nodes.sh ;$SHELL"
+FLIR_NODE=
+while [ -n "$1" ]; do # while loop starts
+	case "$1" in
+	-a) echo "FLIR NODE is going to be initialized!" && export FLIR_NODE="flir";; # Message for -a option
+	*) echo "Option $1 not recognized" ;; # In case you typed a different option other than a,b,c
+	esac
+	shift
+done
+
+if [ -n "$FLIR_NODE" ] 
+then
+    echo "FLIR NODE is running ..."
+    gnome-terminal --title="FLIR NODE" -- /bin/sh -c ". ./run_ros_nodes.sh ;$SHELL"
+fi
 
 # Run the program
-python lemanchot-dc.py
+python3 lemanchot-dc.py
