@@ -6,7 +6,8 @@
 # University: Université Laval
 # 
 
-FROM nvidia/opengl:1.2-glvnd-devel-ubuntu18.04
+# FROM nvidia/opengl:1.2-glvnd-devel-ubuntu18.04
+FROM ubuntu:18.04
 
 LABEL developer="Parham Nooralishahi"
 LABEL email="parham.nooralishahi@gmail.com"
@@ -70,13 +71,9 @@ RUN apt-get -y install \
     libcanberra-gtk-module \
     libcanberra-gtk3-module firefox && apt-get clean
 
-# Add the sourcecodes 
-RUN mkdir -p /home/lemanchot-dc
-ADD . /home/lemanchot-dc
-
 #nvidia-driver-455
 RUN apt-get update && \
-    apt-get install -y  mesa-utils \
+    apt-get install -y mesa-utils \
         libglvnd-dev libgl1-mesa-dev \ 
         libegl1-mesa-dev libgles2-mesa-dev && \
     apt-get install -y pkgconf libglfw3 libglfw3-dev libglew2.0 libglew-dev 
@@ -89,7 +86,12 @@ RUN apt-key adv --keyserver keys.gnupg.net --recv-key F6E65AC044F831AC80A06380C8
         librealsense2-utils librealsense2-dev librealsense2-utils librealsense2-gl && \
     apt-get install -y ros-melodic-realsense2-camera
 
+# Add the sourcecodes 
+RUN mkdir -p /home/lemanchot-dc
+ADD . /home/lemanchot-dc
 
+CMD chmod u+x lemanchot_run.sh && bash -c "source /opt/ros/melodic/setup.bash && python3 lemanchot-dc.py"
+# ENTRYPOINT cd /home/lemanchot-dc && chmod u+x lemanchot_run.sh
 
 # CMD ["firefox"]
 
