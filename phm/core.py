@@ -37,7 +37,7 @@ def exception_logger(function):
     return wrapper
 
 def initialize_log():
-    os.environ['ROS_PYTHON_LOG_CONFIG_FILE'] = default_log_config_file
+    # os.environ['ROS_PYTHON_LOG_CONFIG_FILE'] = default_log_config_file
     Path('logs').mkdir(parents=True, exist_ok=True)
     """Initialize the log configuration"""
     if os.path.isfile(default_log_config_file):
