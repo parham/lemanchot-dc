@@ -68,12 +68,14 @@ class Recorder (Configurable, threading.Thread) :
         logging.info(f'Collector {self.name} is initiated and started to run ...')
 
     def pause(self):
-        self.__flag.clear() # Set to False to block the thread
-        logging.info(f'{self.name} collector is paused!')
+        if self.__flag.is_set():
+            self.__flag.clear() # Set to False to block the thread
+            logging.info(f'{self.name} collector is paused!')
 
     def resume(self):
-        self.__flag.set() # Set to True, let the thread stop blocking
-        logging.info(f'{self.name} collector is resumed!')
+        if not self.__flag.is_set():
+            self.__flag.set() # Set to True, let the thread stop blocking
+            logging.info(f'{self.name} collector is resumed!')
 
     def stop(self):
         self.end_recording()
@@ -169,22 +171,26 @@ class VisibleRecorder (DataRecorder):
         super().__init__(root_dir, name, msg.Image, config)
     
     def record_camera_info(self, *args: Any, **kwargs: Any) :
-        # Collect a packet from camera info topic
-        cinfo = rospy.wait_for_message(self.info_topic, msg.CameraInfo, timeout=10)
-        # Extract the camera calibration fields
-        obj = dict()
-        obj['D'] = cinfo.D
-        obj['K'] = cinfo.K
-        obj['P'] = cinfo.P
-        obj['R'] = cinfo.R
-        obj['binning_x'] = cinfo.binning_x
-        obj['binning_y'] = cinfo.binning_y
-        obj['distortion_model'] = cinfo.distortion_model
-        obj['height'] = cinfo.height
-        obj['width'] = cinfo.width
-        # Write the info
-        with open(os.path.join(self.data_folder, 'camera_info.json'), "w") as outfile: 
-            json.dump(obj, outfile, indent = 4)
+        try:
+            # Collect a packet from camera info topic
+            cinfo = rospy.wait_for_message(self.info_topic, msg.CameraInfo, timeout=10)
+            # Extract the camera calibration fields
+            obj = dict()
+            obj['D'] = cinfo.D
+            obj['K'] = cinfo.K
+            obj['P'] = cinfo.P
+            obj['R'] = cinfo.R
+            obj['binning_x'] = cinfo.binning_x
+            obj['binning_y'] = cinfo.binning_y
+            obj['distortion_model'] = cinfo.distortion_model
+            obj['height'] = cinfo.height
+            obj['width'] = cinfo.width
+            # Write the info
+            with open(os.path.join(self.data_folder, 'camera_info.json'), "w") as outfile: 
+                json.dump(obj, outfile, indent = 4)
+        except Exception as ex:
+            logging.error('f{self.info_topic} failed to be recorded!')
+            logging.exception(ex) 
 
     def begin_recording(self):
         super().begin_recording()
@@ -334,21 +340,21 @@ class LeManchotDC:
         dcobj.record(packet)
 
     def start(self):
-        ts = message_filters.ApproximateTimeSynchronizer(self.subscribers, self.buffer_size, 10)
+        ts = message_filters.ApproximateTimeSynchronizer(self.subscribers, self.buffer_size, 20)
         ts.registerCallback(self.callback_sync, self)
 
     def pause(self):
-        logging.info('LeManchot-dc is paused ...')
+        # logging.info('LeManchot-dc is paused ...')
         for obj in self.collectors.values():
             obj.pause()
     
     def resume(self):
-        logging.info('LeManchot-dc is resumed ...')
+        # logging.info('LeManchot-dc is resumed ...')
         for obj in self.collectors.values():
             obj.resume()
 
     def stop(self):
-        logging.info('LeManchot-dc is shutting down ...')
+        # logging.info('LeManchot-dc is shutting down ...')
         for obj in self.collectors.values():
             obj.stop()
 
