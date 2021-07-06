@@ -5,6 +5,9 @@ from kivy.uix.screenmanager import Screen
 from kivy.graphics.texture import Texture
 from kivy.clock import Clock
 from kivy.lang import Builder
+from kivy.config import Config
+from kivy.core.window import Window
+Config.set('graphics', 'window_state', 'maximized')
 
 from phm import load_config
 import logging
@@ -49,12 +52,16 @@ class LeManchotFrame (Screen):
             self.update_viewers, 1.0 / 30)
         self._updateview_clock = Clock.schedule_interval(
             self.update_info, 1.0)
+        Clock.schedule_once(self.maximize, 0)
         self.queue_visible = queue_visible if queue_visible is not None else multiprocessing.Queue()
         self.queue_thermal = queue_thermal if queue_thermal is not None else multiprocessing.Queue()
         self.record_signal = record_signal 
         self.terminate_signal = terminate_signal
         self.vis_or_th = True
         self.no_signal_img = self.colorimage_to_texture(imutils.resize(cv2.imread(self.__no_signal_img, 0), width=640)) 
+
+    def maximize (self, dt):
+        Window.maximize()
 
     def image_to_texture(self, img):
         """ Convert image to texture. """
@@ -99,6 +106,7 @@ class LeManchotFrame (Screen):
 
         if not self.queue_thermal.empty():
             img = self.queue_thermal.get()
+            img = img.astype('uint8')
             texture_th = self.image_to_texture(img)
         else:
             texture_th = self.no_signal_img
@@ -126,10 +134,12 @@ class LeManchotFrame (Screen):
     
     def pause_dc(self):
         self.record_signal.clear()
+        self.ids['recording_chip'].text = 'NOT RECORDING'
         print('lemanchot-dc is paused')
     
     def resume_dc(self):
         self.record_signal.set()
+        self.ids['recording_chip'].text = 'RECORDING'
         print('lemanchot-dc is resumed')
 
 class LeManchotApp(MDApp):

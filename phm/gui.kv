@@ -36,6 +36,11 @@
         CameraViewer:
             id: phm_camera_main
             size_hint: 1.0, 1.0
+        MDChip:
+            id: recording_chip
+            text: 'NOT RECORDING'
+            icon: ''
+            pos_hint: {'top': 0.95, 'right': 0.95}
         CameraViewer:
             id: phm_camera_secondary
             size_hint: 0.3, 0.2
@@ -110,18 +115,18 @@
             spacing : 10
             MDFloatingActionButton:
                 icon: "play"
-                md_bg_color: root.color_action_button
+                md_bg_color: get_color_from_hex(colors['Green']['600'])
                 on_press: root.resume_dc()
                 # pos_hint: {'right' : 0.45, 'top': 0.15}
 
             MDFloatingActionButton:
                 icon: "pause"
-                md_bg_color: root.color_action_button
+                md_bg_color: get_color_from_hex(colors['Red']['600'])
                 on_press: root.pause_dc()
                 # pos_hint: {'right' : 0.55, 'top': 0.15}
 
             MDFloatingActionButton:
                 icon: "sync"
-                md_bg_color: root.color_action_button
+                md_bg_color: get_color_from_hex(colors['Blue']['600'])
                 on_press: root.switch_view()
                 # pos_hint: {'right' : 0.55, 'top': 0.15}
