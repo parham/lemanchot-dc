@@ -37,7 +37,6 @@ then
     gnome-terminal --title="FLIR NODE" -- /bin/sh -c ". ./run_ros_nodes.sh ;$SHELL"
 fi
 
-export PYTHONPATH= 
 # Run the program
 python3 lemanchot-dc.py
 
