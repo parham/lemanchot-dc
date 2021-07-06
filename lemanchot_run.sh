@@ -37,5 +37,11 @@ then
     gnome-terminal --title="FLIR NODE" -- /bin/sh -c ". ./run_ros_nodes.sh ;$SHELL"
 fi
 
+export PYTHONPATH= 
 # Run the program
 python3 lemanchot-dc.py
+
+# import sys
+
+# print('Remove the python 2.7 distro from the library path!')
+# sys.path.remove('/opt/ros/kinetic/lib/python2.7/dist-packages')
