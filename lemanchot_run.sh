@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Install banner package
-sudo apt install -y banner
+# sudo apt install -y banner
 
 echo ""
 banner LEMANCHOT

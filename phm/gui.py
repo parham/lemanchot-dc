@@ -58,7 +58,8 @@ class LeManchotFrame (Screen):
         self.record_signal = record_signal 
         self.terminate_signal = terminate_signal
         self.vis_or_th = True
-        self.no_signal_img = self.colorimage_to_texture(imutils.resize(cv2.imread(self.__no_signal_img, 0), width=640)) 
+        self.no_signal_depth = self.colorimage_to_texture(imutils.resize(cv2.imread(self.__no_signal_img, 0), width=640))
+        self.no_signal_color = self.colorimage_to_texture(imutils.resize(cv2.imread(self.__no_signal_img, 0), width=640))
 
     def maximize (self, dt):
         Window.maximize()
@@ -101,15 +102,17 @@ class LeManchotFrame (Screen):
         if not self.queue_visible.empty():
             img = self.queue_visible.get()
             texture_vis = self.colorimage_to_texture(img)
+            self.no_signal_color = texture_vis
         else:
-            texture_vis = self.no_signal_img
+            texture_vis = self.no_signal_color
 
         if not self.queue_thermal.empty():
             img = self.queue_thermal.get()
             img = img.astype('uint8')
             texture_th = self.image_to_texture(img)
+            self.no_signal_depth = texture_th
         else:
-            texture_th = self.no_signal_img
+            texture_th = self.no_signal_depth
 
         return texture_vis, texture_th
 
