@@ -32,6 +32,32 @@ This study introduces a multi-modal acquisition and processing platform for insp
   <img src="resources/software_abstract_design.png" width="700" title="Software Abstract Design">
 </p>
 
+## Requirement
+* Docker
+* ROS Melodic
+* OpenCV
+* rospy
+* pillow
+* imageio
+* console-menu
+* kivy
+* kivymd
+* imutils
+* flask
+* psutil
+
+## How To Run
+For running the system, two scripts are prepared to automate the execution:
+
+```
+git clone https://github.com/parham/lemanchot-dc
+cd lemanchot-dc
+chmod u+x lemanchot_run.sh
+chmod u+x run_docker.sh
+./lemanchot_run.sh -a
+./run_docker.sh
+```
+
 ## Team
 **Parham Nooralishahi** is a specialist in embedded and intelligent vision systems and currently is a Ph.D. student at Universite Laval working on developing drone-enabled techniques for the inspection of large and complex industrial components using multi-modal data processing. He is a researcher with a demonstrated history of working in the telecommunication industry and industrial inspection and in-depth expertise in robotics & drones, embedded systems, advanced computer vision and machine learning techniques. He has a Master’s degree in Computer Science (Artificial Intelligence). During his bachelor's degree, he was involved in designing and developing the controlling and monitoring systems for fixed-wing drone for search and rescue purposes. Also, during his Master's degree, he worked extensively on machine learning and computer vision techniques for robotic and soft computing applications.
 
