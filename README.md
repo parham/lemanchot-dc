@@ -32,6 +32,11 @@ This study introduces a multi-modal acquisition and processing platform for insp
   <img src="resources/software_abstract_design.png" width="700" title="Software Abstract Design">
 </p>
 
+## Demo
+<p align="center">
+  <img src="resources/drone_software.jpg" width="500" title="Screenshot of the drone mode">
+</p>
+
 ## Requirement
 * Docker
 * ROS Melodic
