@@ -40,7 +40,7 @@ This study introduces a multi-modal acquisition and processing platform for insp
 <a href="https://youtu.be/J80_gY7oOSI" target="_blank">
 Video #1 - Standalone mode
 </a>
-
+<br/>
 <a href="https://youtu.be/Hobju6ha29c" target="_blank">
 Video #2 - Drone mode
 </a>
