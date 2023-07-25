@@ -40,6 +40,14 @@ In the rise of recent advancements in unmanned aerial vehicles, many studies hav
   <img src="resources/setup_on_drone_2 (1).jpg" width="400" title="Setup installed on DJI M600 Pro drone">
 </p>
 
+## Videos
+
+<p align="center">
+	<a href="https://youtu.be/Hobju6ha29c"><img src="https://img.youtube.com/vi/Hobju6ha29c/sddefault.jpg" width="300"></img></a>
+	<a href="https://youtu.be/J80_gY7oOSI"><img src="https://img.youtube.com/vi/J80_gY7oOSI/sddefault.jpg" width="300"></img></a>
+	<a href="https://youtu.be/XMF93IpMkQE"><img src="https://img.youtube.com/vi/XMF93IpMkQE/sddefault.jpg" width="300"></img></a>
+</p>
+
 ## Multi-Modal Platform for Inspection of Industrial Components
 This study introduces a multi-modal acquisition and processing platform for inspecting industrial components using Unmanned Aerial Vehicles. The setup is designed to attach the sensors to the aerial platform and stabilize them against the drone's vibrations while operating. The platform includes thermal, visible, and stereo depth cameras and communicates directly with the flight controller to obtain the drone's inertial and GPS data. Also, embedded software is developed for calibration, acquisition, transmission, and fusion of multi-modal data. The data fusion method presented in this study generates RGBD&T data frames that contain the thermal, visible, and depth information of the observed scene and the drone's telemetry data. Later, the RGBD&T data is projected to the system coordinate to form a point cloud of the observed scene.
 
